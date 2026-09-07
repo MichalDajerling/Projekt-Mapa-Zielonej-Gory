@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.0] - 07.09.2026
+
+### Dodano:
+- Dodano interaktywny, biały panel ze szczegółowymi informacjami, osadzony w lewej krawędzi kadru mapy.
+- Akcję w okienku podręcznym wyzwalającą zaawansowany widok obrębu.
+
+### Zmieniono:
+- Rozszerzono widok mapy na całe okno przeglądarki.
+- Nazwy obszarów od 44 do 60 w pliku `dane.js` na odpowiadające im nazwy sołectw (np. Racula, Przylep, Ochla).
+
 ## [0.1.0] - 04.09.2026
 
 ### Dodano:
