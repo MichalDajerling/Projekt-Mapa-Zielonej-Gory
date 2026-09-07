@@ -4,6 +4,7 @@ const map = L.map('map', {
   zoom: 12
 });
 
+// wczytanie podkładu mapy z serwisu Esri
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 19,
   attribution: 'Tiles &copy; Esri'
@@ -24,6 +25,19 @@ const hoverStyle = {
   fillColor: "#2563eb",
   fillOpacity: 0.55
 };
+
+// pobranie elementów interfejsu panelu bocznego
+const sidebar = document.getElementById('sidebar');
+const sidebarClose = document.getElementById('sidebar-close');
+const sidebarContent = document.getElementById('sidebar-content');
+
+// obsługa zamknięcia panelu bocznego przyciskiem
+sidebarClose.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+});
+
+// słownik przechowujący warstwy obszarów do obsługi przybliżania
+const obrebLayers = {};
 
 // funkcja do pobierania identyfikatora obszaru z właściwości GeoJSON
 function getObrebId(feature, index) {
@@ -48,6 +62,36 @@ function getObrebId(feature, index) {
   return String(index + 1);
 }
 
+// funkcja formatująca tytuł (np. "Obręb nr 1" lub "Obręb nr 44 - Racula")
+function formatTitle(id, info) {
+  if (info && info.nazwa && !info.nazwa.startsWith("Obręb")) {
+    return `Obręb nr ${id} - ${info.nazwa}`;
+  }
+  return `Obręb nr ${id}`;
+}
+
+// funkcja aktywowana po kliknięciu przycisku "Wybierz" - przybliża mapę i wysuwa panel boczny
+window.selectObreb = function(id) {
+  const layer = obrebLayers[id];
+  const info = obszaryData[id] || { opis: "Brak dodatkowego opisu." };
+  const tytul = formatTitle(id, info);
+
+  // przybliżenie mapy do wybranych granic obszaru
+  if (layer) {
+    map.fitBounds(layer.getBounds(), { padding: [40, 40] });
+  }
+
+  // zamknięcie wyskakującego okienka popup
+  map.closePopup();
+
+  // wypełnienie panelu bocznego danymi i wysunięcie go
+  sidebarContent.innerHTML = `
+    <h2 class="sidebar-title">${tytul}</h2>
+    <p class="sidebar-desc">${info.opis}</p>
+  `;
+  sidebar.classList.add('active');
+};
+
 // wczytanie danych GeoJSON z pliku obszary.json i dodanie ich do mapy
 fetch('obszary.json')
   .then(response => response.json())
@@ -57,8 +101,11 @@ fetch('obszary.json')
       onEachFeature: function(feature, layer) {
         const index = geojsonData.features.indexOf(feature);
         const id = getObrebId(feature, index);
+        
+        // zapamiętanie warstwy pod jej identyfikatorem
+        obrebLayers[id] = layer;
 
-        // przypisanie identyfikatora obszaru do warstwy
+        // przypisanie stałej etykiety z numerem obszaru
         if (id) {
           layer.bindTooltip(id, {
             permanent: true,
@@ -67,6 +114,7 @@ fetch('obszary.json')
           });
         }
 
+        // obsługa interakcji myszą dla każdego obszaru
         layer.on({
           mouseover: function(e) {
             e.target.setStyle(hoverStyle);
@@ -76,11 +124,21 @@ fetch('obszary.json')
             geojsonLayer.resetStyle(e.target);
           },
           click: function(e) {
-            const info = obszaryData[id] || { nazwa: "Obręb " + id, opis: "Brak dodatkowego opisu." };
+            const info = obszaryData[id] || { opis: "Brak dodatkowego opisu." };
+            const tytul = "Obręb nr " + id;
             
+            // wygenerowanie zawartości okienka popup wraz z przyciskiem "Wybierz"
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
             L.popup()
               .setLatLng(e.latlng)
-              .setContent('<div class="popup-content"><h3>' + info.nazwa + '</h3><p>' + info.opis + '</p></div>')
+              .setContent(popupHTML)
               .openOn(map);
           }
         });

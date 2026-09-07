@@ -9,7 +9,9 @@ Projekt interaktywnej mapy internetowej prezentującej podział administracyjny 
 - Wyświetlanie wektorowych granic wszystkich 60 obrębów ewidencyjnych na podkładzie Esri World Street Map.
 - Stałe numerowanie obszarów (1-60) zgodnie z PRG.
 - Dynamiczna zmiana stylistyki obszaru po najechaniu kursorem myszy.
-- Szczegółowe okienka informacyjne po kliknięciu w dany obręb.
+- Okienko informacyjne z przyciskiem akcji *„Wybierz”*.
+- Pasek ze szczegółami po lewej stronie ekranu uruchamiany po wybraniu obrębu.
+- Płynne przybliżenie do wybranego obszaru z uwzględnieniem szerokości wysuniętego panelu.
 
 ---
 
