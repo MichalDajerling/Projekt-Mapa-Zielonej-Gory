@@ -1,16 +1,16 @@
-// inicjalizacja mapy Leaflet - ustawienie początkowego widoku i przybliżenia na obszarze Zielonej Góry
+// Inicjalizacja mapy Leaflet
 const map = L.map('map', {
   center: [51.9356, 15.5064],
   zoom: 12
 });
 
-// wczytanie podkładu mapy z serwisu Esri
+// Wczytanie podkładu mapy Esri
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 19,
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// kolorowanie obszarów na mapie
+// Styl domyślny obszarów chronionych
 const defaultStyle = {
   color: "#2b5c8f",
   weight: 1.5,
@@ -18,7 +18,7 @@ const defaultStyle = {
   fillOpacity: 0.25
 };
 
-// kolorowanie obszarów po najechaniu myszką
+// Styl po najechaniu myszką na obszary chronione
 const hoverStyle = {
   color: "#1e3a8a",
   weight: 3,
@@ -26,65 +26,348 @@ const hoverStyle = {
   fillOpacity: 0.55
 };
 
-// pobranie elementów interfejsu panelu bocznego
+// Styl domyślny dla lasów (zielony)
+const defaultStyleLasy = {
+  color: "#1e5e2f",
+  weight: 1.5,
+  fillColor: "#22c55e",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na lasy (zielony)
+const hoverStyleLasy = {
+  color: "#14532d",
+  weight: 3,
+  fillColor: "#16a34a",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla parków leśnych (oliwkowy)
+const defaultStyleParkiLesne = {
+  color: "#556b2f",
+  weight: 1.5,
+  fillColor: "#a2b969",
+  fillOpacity: 0.35
+};
+
+// Styl po najechaniu myszką na parki leśne (oliwkowy)
+const hoverStyleParkiLesne = {
+  color: "#3b4a20",
+  weight: 3,
+  fillColor: "#80963e",
+  fillOpacity: 0.65
+};
+
+// Styl domyślny dla cmentarzy (szary)
+const defaultStyleCmentarze = {
+  color: "#4b5563",
+  weight: 1.5,
+  fillColor: "#9ca3af",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na cmentarze (ciemnoszary)
+const hoverStyleCmentarze = {
+  color: "#1f2937",
+  weight: 3,
+  fillColor: "#6b7280",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla wsi (ciemnopomarańczowy)
+const defaultStyleWsie = {
+  color: "#c2410c",
+  weight: 1.5,
+  fillColor: "#ea580c",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na wsie (wyrazisty, rdzawo-pomarańczowy)
+const hoverStyleWsie = {
+  color: "#7c2d12",
+  weight: 3,
+  fillColor: "#c2410c",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla ogrodów działkowych (ciemny fiolet)
+const defaultStyleOgrody = {
+  color: "#581c87",
+  weight: 1.5,
+  fillColor: "#7e22ce",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na ogrody działkowe (ciemny fiolet)
+const hoverStyleOgrody = {
+  color: "#3b0764",
+  weight: 3,
+  fillColor: "#6b21a8",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla ogrodów willowych (bordowy)
+const defaultStyleOgrodyWillowe = {
+  color: "#580010",
+  weight: 1.5,
+  fillColor: "#800020",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na ogrody willowe (bordowy)
+const hoverStyleOgrodyWillowe = {
+  color: "#33000a",
+  weight: 3,
+  fillColor: "#600018",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla osiedli mieszkaniowych i usługowych (pomarańczowy)
+const defaultStyleOsMieszkanioweIUslugowe = {
+  color: "#c2410c",
+  weight: 1.5,
+  fillColor: "#f97316",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na osiedla mieszkaniowe i usługowe (pomarańczowy)
+const hoverStyleOsMieszkanioweIUslugowe = {
+  color: "#9a3412",
+  weight: 3,
+  fillColor: "#ea580c",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla parków miejskich (brązowy)
+const defaultStyleParkiMiejskie = {
+  color: "#5c2c0c",
+  weight: 1.5,
+  fillColor: "#8b4513",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na parki miejskie (brązowy)
+const hoverStyleParkiMiejskie = {
+  color: "#3d1d08",
+  weight: 3,
+  fillColor: "#6e360f",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla parków historycznych (jasnoniebieski)
+const defaultStyleParkiHistoryczne = {
+  color: "#0284c7",
+  weight: 1.5,
+  fillColor: "#38bdf8",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na parki historyczne (jasnoniebieski)
+const hoverStyleParkiHistoryczne = {
+  color: "#0369a1",
+  weight: 3,
+  fillColor: "#0284c7",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla stref przemysłowych (magenta)
+const defaultStyleStrefyPrzem = {
+  color: "#cc00cc",
+  weight: 1.5,
+  fillColor: "#ff00ff",
+  fillOpacity: 0.35
+};
+
+// Styl po najechaniu myszką na strefy przemysłowe (magenta)
+const hoverStyleStrefyPrzem = {
+  color: "#ff00ff",
+  weight: 3,
+  fillColor: "#ff00ff",
+  fillOpacity: 0.65
+};
+
+// Styl domyślny dla terenów komunikacji (czerwony)
+const defaultStyleTerenyKomunikacji = {
+  color: "#991b1b",
+  weight: 1.5,
+  fillColor: "#ef4444",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na tereny komunikacji (czerwony)
+const hoverStyleTerenyKomunikacji = {
+  color: "#7f1d1d",
+  weight: 3,
+  fillColor: "#dc2626",
+  fillOpacity: 0.55
+};
+
+// Styl domyślny dla terenów rolniczych (żółty)
+const defaultStyleTerenyRol = {
+  color: "#ca8a04",
+  weight: 1.5,
+  fillColor: "#eab308",
+  fillOpacity: 0.25
+};
+
+// Styl po najechaniu myszką na tereny rolnicze (żółty)
+const hoverStyleTerenyRol = {
+  color: "#854d0e",
+  weight: 3,
+  fillColor: "#ca8a04",
+  fillOpacity: 0.55
+};
+
+// Pobranie elementów panelu bocznego
 const sidebar = document.getElementById('sidebar');
 const sidebarClose = document.getElementById('sidebar-close');
 const sidebarContent = document.getElementById('sidebar-content');
 
-// obsługa zamknięcia panelu bocznego przyciskiem
 sidebarClose.addEventListener('click', () => {
   sidebar.classList.remove('active');
 });
 
-// słownik przechowujący warstwy obszarów do obsługi przybliżania
 const obrebLayers = {};
+let geojsonLayer = null;
+let geojsonLasyLayer = null;
+let geojsonParkiLesneLayer = null;
+let geojsonCmentarzeLayer = null;
+let geojsonWsieLayer = null;
+let geojsonOgrodyLayer = null;
+let geojsonOgrodyWilloweLayer = null;
+let geojsonOsMieszkanioweIUslugoweLayer = null;
+let geojsonParkiMiejskieLayer = null;
+let geojsonParkiHistoryczneLayer = null;
+let geojsonStrefyPrzemLayer = null;
+let geojsonTerenyKomunikacjiLayer = null;
+let geojsonTerenyRolLayer = null;
 
-// funkcja do pobierania identyfikatora obszaru z właściwości GeoJSON
+// Tworzenie panelu filtrowania w prawym górnym rogu
+const filterControl = L.control({ position: 'topright' });
+
+filterControl.onAdd = function() {
+  const div = L.DomUtil.create('div', 'map-filter-box');
+  div.innerHTML = `
+    <label>
+      <input type="checkbox" id="toggle-layer" checked>
+      Obszary chronione
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-lasy" checked>
+      Lasy
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-parki-lesne" checked>
+      Parki leśne
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-cmentarze" checked>
+      Cmentarze
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-wsie" checked>
+      Wsie
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-ogrody" checked>
+      Ogrody działkowe
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-ogrody-willowe" checked>
+      Ogrody willowe
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-os-mieszkaniowe-i-uslugowe" checked>
+      Osiedla mieszkaniowe i usługowe
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-parki-miejskie" checked>
+      Parki miejskie
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-parki-historyczne" checked>
+      Parki historyczne
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-strefy-przem" checked>
+      Strefy przemysłowe
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-tereny-komunikacji" checked>
+      Tereny komunikacji
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-tereny-rol" checked>
+      Tereny rolnicze
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-names">
+      Wyświetlaj nazwy
+    </label>
+  `;
+  L.DomEvent.disableClickPropagation(div);
+  return div;
+};
+
+filterControl.addTo(map);
+
+// Pobieranie identyfikatora z właściwości GeoJSON
 function getObrebId(feature, index) {
   const p = feature.properties || {};
-  
-  if (p.JPT_NAZWA_) {
-    const val = parseInt(p.JPT_NAZWA_, 10);
-    if (!isNaN(val)) return String(val);
-  }
-  if (p.NR_OBREBU) {
-    const val = parseInt(p.NR_OBREBU, 10);
-    if (!isNaN(val)) return String(val);
-  }
-  if (p.JPT_KOD_JE || p.TERYT) {
-    const teryt = String(p.JPT_KOD_JE || p.TERYT);
-    if (teryt.includes('.')) {
-      const val = parseInt(teryt.split('.').pop(), 10);
-      if (!isNaN(val)) return String(val);
-    }
-  }
-  
+  if (p.id) return String(p.id);
+  if (p.kod) return String(p.kod);
   return String(index + 1);
 }
 
-// funkcja formatująca tytuł (np. "Obręb nr 1" lub "Obręb nr 44 - Racula")
+// Formatowanie tytułu w panelu bocznym / popupie
 function formatTitle(id, info) {
-  if (info && info.nazwa && !info.nazwa.startsWith("Obręb")) {
-    return `Obręb nr ${id} - ${info.nazwa}`;
+  if (info && info.nazwa) {
+    return info.nazwa;
   }
-  return `Obręb nr ${id}`;
+  return `Obszar nr ${id}`;
 }
 
-// funkcja aktywowana po kliknięciu przycisku "Wybierz" - przybliża mapę i wysuwa panel boczny
+// Wybór obszaru i otwieranie panelu bocznego
 window.selectObreb = function(id) {
   const layer = obrebLayers[id];
-  const info = obszaryData[id] || { opis: "Brak dodatkowego opisu." };
+  
+  let info = { opis: "Brak dodatkowego opisu." };
+  if (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) {
+    info = obszaryChronioneData[id];
+  } else if (typeof lasyData !== 'undefined' && lasyData[id]) {
+    info = lasyData[id];
+  } else if (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) {
+    info = parkiLesneData[id];
+  } else if (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) {
+    info = cmentarzeData[id];
+  } else if (typeof wsieData !== 'undefined' && wsieData[id]) {
+    info = wsieData[id];
+  } else if (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) {
+    info = ogrodyDzialkoweData[id];
+  } else if (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) {
+    info = ogrodyWilloweData[id];
+  } else if (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) {
+    info = osMieszkanioweIUslugoweData[id];
+  } else if (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) {
+    info = parkiMiejskieData[id];
+  } else if (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) {
+    info = parkiHistoryczneData[id];
+  } else if (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) {
+    info = strefyPrzemysloweData[id];
+  } else if (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) {
+    info = terenyKomunikacjiData[id];
+  } else if (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) {
+    info = terenyRolniczeData[id];
+  }
+
   const tytul = formatTitle(id, info);
 
-  // przybliżenie mapy do wybranych granic obszaru
   if (layer) {
     map.fitBounds(layer.getBounds(), { padding: [40, 40] });
   }
 
-  // zamknięcie wyskakującego okienka popup
   map.closePopup();
 
-  // wypełnienie panelu bocznego danymi i wysunięcie go
   sidebarContent.innerHTML = `
     <h2 class="sidebar-title">${tytul}</h2>
     <p class="sidebar-desc">${info.opis}</p>
@@ -92,29 +375,34 @@ window.selectObreb = function(id) {
   sidebar.classList.add('active');
 };
 
-// wczytanie danych GeoJSON z pliku obszary.json i dodanie ich do mapy
-fetch('obszary.json')
-  .then(response => response.json())
+// Wczytywanie danych GeoJSON dla obszarów chronionych
+fetch('obszary/obszary_chronione/obszary_chronione.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
   .then(geojsonData => {
-    const geojsonLayer = L.geoJSON(geojsonData, {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonLayer = L.geoJSON(geojsonData, {
       style: defaultStyle,
       onEachFeature: function(feature, layer) {
-        const index = geojsonData.features.indexOf(feature);
+        const index = itemsList.indexOf(feature);
         const id = getObrebId(feature, index);
         
-        // zapamiętanie warstwy pod jej identyfikatorem
+        feature.calculatedId = id;
         obrebLayers[id] = layer;
 
-        // przypisanie stałej etykiety z numerem obszaru
-        if (id) {
-          layer.bindTooltip(id, {
-            permanent: true,
-            direction: 'center',
-            className: 'area-label'
-          });
-        }
+        const info = (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) 
+          ? obszaryChronioneData[id] 
+          : { opis: "Brak dodatkowego opisu." };
 
-        // obsługa interakcji myszą dla każdego obszaru
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
         layer.on({
           mouseover: function(e) {
             e.target.setStyle(hoverStyle);
@@ -124,10 +412,8 @@ fetch('obszary.json')
             geojsonLayer.resetStyle(e.target);
           },
           click: function(e) {
-            const info = obszaryData[id] || { opis: "Brak dodatkowego opisu." };
-            const tytul = "Obręb nr " + id;
+            const tytul = formatTitle(id, info);
             
-            // wygenerowanie zawartości okienka popup wraz z przyciskiem "Wybierz"
             const popupHTML = `
               <div class="popup-content">
                 <h3>${tytul}</h3>
@@ -145,6 +431,971 @@ fetch('obszary.json')
       }
     }).addTo(map);
 
-    // dopasowanie widoku i przybliżenia mapy do granic wczytanych obszarów
-    map.fitBounds(geojsonLayer.getBounds());
+    if (geojsonLayer.getBounds().isValid()) {
+      map.fitBounds(geojsonLayer.getBounds());
+    }
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON obszarów chronionych:", error);
   });
+
+// Wczytywanie danych GeoJSON dla lasów
+fetch('obszary/lasy/lasy.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonLasyLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleLasy,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof lasyData !== 'undefined' && lasyData[id]) 
+          ? lasyData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleLasy);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonLasyLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla lasów:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla parków leśnych
+fetch('obszary/parki_lesne/parki_lesne.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonParkiLesneLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleParkiLesne,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) 
+          ? parkiLesneData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleParkiLesne);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonParkiLesneLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla parków leśnych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla cmentarzy
+fetch('obszary/cmentarze/cmentarze.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonCmentarzeLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleCmentarze,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) 
+          ? cmentarzeData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleCmentarze);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonCmentarzeLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla cmentarzy:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla wsi
+fetch('obszary/wsie/wsie.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonWsieLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleWsie,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof wsieData !== 'undefined' && wsieData[id]) 
+          ? wsieData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleWsie);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonWsieLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla wsi:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla ogrodów działkowych
+fetch('obszary/ogrody_dzialkowe/ogrody_dzialkowe.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonOgrodyLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleOgrody,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) 
+          ? ogrodyDzialkoweData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleOgrody);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonOgrodyLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla ogrodów działkowych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla ogrodów willowych
+fetch('obszary/ogrody_willowe/ogrody_willowe.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonOgrodyWilloweLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleOgrodyWillowe,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) 
+          ? ogrodyWilloweData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleOgrodyWillowe);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonOgrodyWilloweLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla ogrodów willowych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla osiedli mieszkaniowych i usługowych
+fetch('obszary/os_mieszkaniowe_i_uslugowe/os_mieszkaniowe_i_uslugowe.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonOsMieszkanioweIUslugoweLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleOsMieszkanioweIUslugowe,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) 
+          ? osMieszkanioweIUslugoweData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleOsMieszkanioweIUslugowe);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonOsMieszkanioweIUslugoweLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla osiedli mieszkaniowych i usługowych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla parków miejskich
+fetch('obszary/parki_miejskie/parki_miejskie.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonParkiMiejskieLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleParkiMiejskie,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) 
+          ? parkiMiejskieData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleParkiMiejskie);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonParkiMiejskieLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla parków miejskich:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla parków historycznych
+fetch('obszary/parki_historyczne/parki_historyczne.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonParkiHistoryczneLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleParkiHistoryczne,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) 
+          ? parkiHistoryczneData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleParkiHistoryczne);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonParkiHistoryczneLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla parków historycznych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla stref przemysłowych
+fetch('obszary/strefy_przem/strefy_przem.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonStrefyPrzemLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleStrefyPrzem,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) 
+          ? strefyPrzemysloweData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleStrefyPrzem);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonStrefyPrzemLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla stref przemysłowych:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla terenów komunikacji
+fetch('obszary/tereny_komunikacji/tereny_komunikacji.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonTerenyKomunikacjiLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleTerenyKomunikacji,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) 
+          ? terenyKomunikacjiData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleTerenyKomunikacji);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonTerenyKomunikacjiLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla terenów komunikacji:", error);
+  });
+
+// Wczytywanie danych GeoJSON dla terenów rolniczych
+fetch('obszary/tereny_rol/tereny_rol.json')
+  .then(response => {
+    if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
+    return response.json();
+  })
+  .then(geojsonData => {
+    const itemsList = geojsonData.features || geojsonData.geometries || [];
+
+    geojsonTerenyRolLayer = L.geoJSON(geojsonData, {
+      style: defaultStyleTerenyRol,
+      onEachFeature: function(feature, layer) {
+        const index = itemsList.indexOf(feature);
+        const id = getObrebId(feature, index);
+        
+        feature.calculatedId = id;
+        obrebLayers[id] = layer;
+
+        const info = (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) 
+          ? terenyRolniczeData[id] 
+          : { opis: "Brak dodatkowego opisu." };
+
+        layer.bindTooltip(id, {
+          permanent: true,
+          direction: 'center',
+          className: 'area-label'
+        });
+
+        layer.on({
+          mouseover: function(e) {
+            e.target.setStyle(hoverStyleTerenyRol);
+            e.target.bringToFront();
+          },
+          mouseout: function(e) {
+            geojsonTerenyRolLayer.resetStyle(e.target);
+          },
+          click: function(e) {
+            const tytul = formatTitle(id, info);
+            
+            const popupHTML = `
+              <div class="popup-content">
+                <h3>${tytul}</h3>
+                <p>${info.opis}</p>
+                <button class="btn-select" onclick="selectObreb('${id}')">Wybierz</button>
+              </div>
+            `;
+
+            L.popup()
+              .setLatLng(e.latlng)
+              .setContent(popupHTML)
+              .openOn(map);
+          }
+        });
+      }
+    }).addTo(map);
+  })
+  .catch(error => {
+    console.error("Błąd podczas wczytywania danych GeoJSON dla terenów rolniczych:", error);
+  });
+
+// Obsługa zdarzeń dla checkboxów filtrowania
+document.addEventListener('change', (e) => {
+  if (e.target.id === 'toggle-layer') {
+    if (geojsonLayer) {
+      if (e.target.checked) map.addLayer(geojsonLayer);
+      else map.removeLayer(geojsonLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-lasy') {
+    if (geojsonLasyLayer) {
+      if (e.target.checked) map.addLayer(geojsonLasyLayer);
+      else map.removeLayer(geojsonLasyLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-parki-lesne') {
+    if (geojsonParkiLesneLayer) {
+      if (e.target.checked) map.addLayer(geojsonParkiLesneLayer);
+      else map.removeLayer(geojsonParkiLesneLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-cmentarze') {
+    if (geojsonCmentarzeLayer) {
+      if (e.target.checked) map.addLayer(geojsonCmentarzeLayer);
+      else map.removeLayer(geojsonCmentarzeLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-wsie') {
+    if (geojsonWsieLayer) {
+      if (e.target.checked) map.addLayer(geojsonWsieLayer);
+      else map.removeLayer(geojsonWsieLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-ogrody') {
+    if (geojsonOgrodyLayer) {
+      if (e.target.checked) map.addLayer(geojsonOgrodyLayer);
+      else map.removeLayer(geojsonOgrodyLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-ogrody-willowe') {
+    if (geojsonOgrodyWilloweLayer) {
+      if (e.target.checked) map.addLayer(geojsonOgrodyWilloweLayer);
+      else map.removeLayer(geojsonOgrodyWilloweLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-os-mieszkaniowe-i-uslugowe') {
+    if (geojsonOsMieszkanioweIUslugoweLayer) {
+      if (e.target.checked) map.addLayer(geojsonOsMieszkanioweIUslugoweLayer);
+      else map.removeLayer(geojsonOsMieszkanioweIUslugoweLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-parki-miejskie') {
+    if (geojsonParkiMiejskieLayer) {
+      if (e.target.checked) map.addLayer(geojsonParkiMiejskieLayer);
+      else map.removeLayer(geojsonParkiMiejskieLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-parki-historyczne') {
+    if (geojsonParkiHistoryczneLayer) {
+      if (e.target.checked) map.addLayer(geojsonParkiHistoryczneLayer);
+      else map.removeLayer(geojsonParkiHistoryczneLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-strefy-przem') {
+    if (geojsonStrefyPrzemLayer) {
+      if (e.target.checked) map.addLayer(geojsonStrefyPrzemLayer);
+      else map.removeLayer(geojsonStrefyPrzemLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-tereny-komunikacji') {
+    if (geojsonTerenyKomunikacjiLayer) {
+      if (e.target.checked) map.addLayer(geojsonTerenyKomunikacjiLayer);
+      else map.removeLayer(geojsonTerenyKomunikacjiLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-tereny-rol') {
+    if (geojsonTerenyRolLayer) {
+      if (e.target.checked) map.addLayer(geojsonTerenyRolLayer);
+      else map.removeLayer(geojsonTerenyRolLayer);
+    }
+  }
+
+  if (e.target.id === 'toggle-names') {
+    const showFullNames = e.target.checked;
+
+    if (geojsonLayer) {
+      geojsonLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) 
+          ? obszaryChronioneData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonLasyLayer) {
+      geojsonLasyLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof lasyData !== 'undefined' && lasyData[id]) 
+          ? lasyData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonParkiLesneLayer) {
+      geojsonParkiLesneLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) 
+          ? parkiLesneData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonCmentarzeLayer) {
+      geojsonCmentarzeLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) 
+          ? cmentarzeData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonWsieLayer) {
+      geojsonWsieLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof wsieData !== 'undefined' && wsieData[id]) 
+          ? wsieData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonOgrodyLayer) {
+      geojsonOgrodyLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) 
+          ? ogrodyDzialkoweData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonOgrodyWilloweLayer) {
+      geojsonOgrodyWilloweLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) 
+          ? ogrodyWilloweData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonOsMieszkanioweIUslugoweLayer) {
+      geojsonOsMieszkanioweIUslugoweLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) 
+          ? osMieszkanioweIUslugoweData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonParkiMiejskieLayer) {
+      geojsonParkiMiejskieLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) 
+          ? parkiMiejskieData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonParkiHistoryczneLayer) {
+      geojsonParkiHistoryczneLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) 
+          ? parkiHistoryczneData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonStrefyPrzemLayer) {
+      geojsonStrefyPrzemLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) 
+          ? strefyPrzemysloweData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonTerenyKomunikacjiLayer) {
+      geojsonTerenyKomunikacjiLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) 
+          ? terenyKomunikacjiData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+
+    if (geojsonTerenyRolLayer) {
+      geojsonTerenyRolLayer.eachLayer((layer) => {
+        const id = layer.feature.calculatedId;
+        const info = (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) 
+          ? terenyRolniczeData[id] 
+          : {};
+        const newLabelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+        layer.setTooltipContent(newLabelText);
+      });
+    }
+  }
+});

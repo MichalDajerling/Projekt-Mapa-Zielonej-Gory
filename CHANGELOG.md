@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.3.0] - 14.09.2026
+
+### Dodano
+- Podział obszarów Zielonej Góry na osobne kategorie warstw:
+  - Cmentarze (`cmentarze`),
+  - Lasy (`lasy`),
+  - Obszary chronione (`obszary_chronione`),
+  - Ogrody działkowe (`ogrody_dzialkowe`),
+  - Ogrody willowe (`ogrody_willowe`),
+  - Osiedla mieszkaniowe i usługowe (`os_mieszkaniowe_i_uslugowe`),
+  - Parki historyczne (`parki_historyczne`),
+  - Parki leśne (`parki_lesne`),
+  - Parki miejskie (`parki_miejskie`),
+  - Strefy przemysłowe (`strefy_przem`),
+  - Tereny komunikacji (`tereny_komunikacji`),
+  - Tereny rolnicze (`tereny_rol`),
+  - Wsie (`wsie`).
+- Panel kontrolny w prawym górnym rogu mapy z obsługą:
+  - Filtrowania i przełączania widoczności poszczególnych obszarów,
+  - Przełączania trybu wyświetlania etykiet między ID a nazwą obszaru.
+
 ## [0.2.0] - 07.09.2026
 
 ### Dodano:
