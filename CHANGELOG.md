@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.3.1] - 17.09.2026
+
+### Dodano
+
+- Nowe obszary:
+  - OW03 dla `ogrody_willowe`,
+  - TZ03 dla `os_mieszkaniowe_i_uslugowe`,
+  - ZH03 oraz ZH04 dla `parki_historyczne`,
+  - ZL03 dla `lasy`,
+  - ZLP03 oraz ZLP04 dla `parki_lesne`,
+  - ZP03,ZP04 i ZP05 dla `parki_miejskie`.
+- Kolory obrysów w panelu kontrolnym z warstwami.
+- Możliwośc zwinięcia panelu kontrolnego z warstwami.
+- Po wybraniu danego obszaru wyskakuje okno z szczegółowymi informacjami dla tego obszaru.
+
+### Naprawiono
+
+- Wyświetlanie nazw dla `strefy_przem`.
+- Obrys `TW01` zakrywał `ZC01` co powodowało brak możliwości sprawdzenia szczegółów dla `ZC01`.
+
 ## [0.3.0] - 14.09.2026
 
 ### Dodano

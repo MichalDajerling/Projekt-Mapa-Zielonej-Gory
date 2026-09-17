@@ -63,54 +63,126 @@ html, body {
   text-shadow: 1px 1px 2px #ffffff, -1px -1px 2px #ffffff, 1px -1px 2px #ffffff, -1px 1px 2px #ffffff;
 }
 
-.sidebar {
-  position: absolute;
+.modal-overlay {
+  position: fixed;
   top: 0;
-  left: -350px;
-  width: 320px;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
-  z-index: 2000;
-  transition: left 0.3s ease-in-out;
-  padding: 25px 20px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  position: relative;
+  background: #ffffff;
+  width: 85%;
+  max-width: 1150px;
+  max-height: 85vh;
+  border-radius: 35px;
+  padding: 30px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar.active {
-  left: 0;
-}
-
-.sidebar-close {
+.modal-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
+  top: 20px;
+  right: 25px;
+  background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 32px;
   cursor: pointer;
-  color: #666666;
+  color: #555555;
+  z-index: 10;
   line-height: 1;
 }
 
-.sidebar-close:hover {
+.modal-close:hover {
   color: #000000;
 }
 
-.sidebar-title {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  font-size: 20px;
-  color: #1e3a8a;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 8px;
+.modal-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000000;
 }
 
-.sidebar-desc {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #374151;
+.modal-header h2 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 700;
+}
+
+.modal-body {
+  display: flex;
+  gap: 25px;
+  flex: 1;
+}
+
+@media (max-width: 850px) {
+  .modal-body {
+    flex-direction: column-reverse;
+  }
+}
+
+.modal-info {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: #222222;
+}
+
+.card-table th, .card-table td {
+  border: 1px solid #000000;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.card-table th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+  width: 32%;
+}
+
+.modal-map-box {
+  flex: 1;
+  min-height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  position: relative;
+}
+
+#mini-map {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
 }
 
 .map-filter-box {
@@ -122,8 +194,39 @@ html, body {
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   user-select: none;
+  min-width: 200px;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  color: #1e293b;
+  padding-bottom: 4px;
+}
+
+.filter-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0 4px;
+  color: #64748b;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.filter-content.collapsed {
+  display: none;
 }
 
 .map-filter-box label {
@@ -140,4 +243,14 @@ html, body {
   width: 16px;
   height: 16px;
   accent-color: #2563eb;
+}
+
+.color-badge {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 2px;
+  box-sizing: border-box;
 }

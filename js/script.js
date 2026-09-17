@@ -218,14 +218,25 @@ const hoverStyleTerenyRol = {
   fillOpacity: 0.55
 };
 
-// Pobranie elementów panelu bocznego
-const sidebar = document.getElementById('sidebar');
-const sidebarClose = document.getElementById('sidebar-close');
-const sidebarContent = document.getElementById('sidebar-content');
+// Pobranie elementów okna modalnego
+const modalOverlay = document.getElementById('modal-overlay');
+const modalClose = document.getElementById('modal-close');
+const modalContent = document.getElementById('modal-content');
+let miniMap = null;
 
-sidebarClose.addEventListener('click', () => {
-  sidebar.classList.remove('active');
-});
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    modalOverlay.classList.remove('active');
+  });
+}
+
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.remove('active');
+    }
+  });
+}
 
 const obrebLayers = {};
 let geojsonLayer = null;
@@ -248,64 +259,95 @@ const filterControl = L.control({ position: 'topright' });
 filterControl.onAdd = function() {
   const div = L.DomUtil.create('div', 'map-filter-box');
   div.innerHTML = `
-    <label>
-      <input type="checkbox" id="toggle-layer" checked>
-      Obszary chronione
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-lasy" checked>
-      Lasy
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-parki-lesne" checked>
-      Parki leśne
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-cmentarze" checked>
-      Cmentarze
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-wsie" checked>
-      Wsie
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-ogrody" checked>
-      Ogrody działkowe
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-ogrody-willowe" checked>
-      Ogrody willowe
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-os-mieszkaniowe-i-uslugowe" checked>
-      Osiedla mieszkaniowe i usługowe
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-parki-miejskie" checked>
-      Parki miejskie
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-parki-historyczne" checked>
-      Parki historyczne
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-strefy-przem" checked>
-      Strefy przemysłowe
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-tereny-komunikacji" checked>
-      Tereny komunikacji
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-tereny-rol" checked>
-      Tereny rolnicze
-    </label>
-    <label>
-      <input type="checkbox" id="toggle-names">
-      Wyświetlaj nazwy
-    </label>
+    <div class="filter-header" id="filter-header">
+      <span>Warstwy mapy</span>
+      <button type="button" class="filter-toggle-btn" id="toggle-filter-btn">▼</button>
+    </div>
+    <div class="filter-content" id="filter-content">
+      <label>
+        <input type="checkbox" id="toggle-layer" checked>
+        <span class="color-badge" style="background-color: #3388ff; border-color: #2b5c8f;"></span>
+        Obszary chronione
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-lasy" checked>
+        <span class="color-badge" style="background-color: #22c55e; border-color: #1e5e2f;"></span>
+        Lasy
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-parki-lesne" checked>
+        <span class="color-badge" style="background-color: #a2b969; border-color: #556b2f;"></span>
+        Parki leśne
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-cmentarze" checked>
+        <span class="color-badge" style="background-color: #9ca3af; border-color: #4b5563;"></span>
+        Cmentarze
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-wsie" checked>
+        <span class="color-badge" style="background-color: #ea580c; border-color: #c2410c;"></span>
+        Sołectwa
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-ogrody" checked>
+        <span class="color-badge" style="background-color: #7e22ce; border-color: #581c87;"></span>
+        Ogrody działkowe
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-ogrody-willowe" checked>
+        <span class="color-badge" style="background-color: #800020; border-color: #580010;"></span>
+        Ogrody willowe
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-os-mieszkaniowe-i-uslugowe" checked>
+        <span class="color-badge" style="background-color: #f97316; border-color: #c2410c;"></span>
+        Osiedla mieszkaniowe i usługowe
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-parki-miejskie" checked>
+        <span class="color-badge" style="background-color: #8b4513; border-color: #5c2c0c;"></span>
+        Parki miejskie
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-parki-historyczne" checked>
+        <span class="color-badge" style="background-color: #38bdf8; border-color: #0284c7;"></span>
+        Parki historyczne
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-strefy-przem" checked>
+        <span class="color-badge" style="background-color: #ff00ff; border-color: #cc00cc;"></span>
+        Strefy przemysłowe
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-tereny-komunikacji" checked>
+        <span class="color-badge" style="background-color: #ef4444; border-color: #991b1b;"></span>
+        Tereny komunikacji
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-tereny-rol" checked>
+        <span class="color-badge" style="background-color: #eab308; border-color: #ca8a04;"></span>
+        Tereny rolnicze
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-names">
+        Wyświetlaj nazwy
+      </label>
+    </div>
   `;
+  
   L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+
+  const header = div.querySelector('#filter-header');
+  const content = div.querySelector('#filter-content');
+  const btn = div.querySelector('#toggle-filter-btn');
+
+  header.addEventListener('click', () => {
+    content.classList.toggle('collapsed');
+    btn.textContent = content.classList.contains('collapsed') ? '▲' : '▼';
+  });
+
   return div;
 };
 
@@ -319,7 +361,7 @@ function getObrebId(feature, index) {
   return String(index + 1);
 }
 
-// Formatowanie tytułu w panelu bocznym / popupie
+// Formatowanie tytułu w oknie modalnym / popupie
 function formatTitle(id, info) {
   if (info && info.nazwa) {
     return info.nazwa;
@@ -327,37 +369,52 @@ function formatTitle(id, info) {
   return `Obszar nr ${id}`;
 }
 
-// Wybór obszaru i otwieranie panelu bocznego
+// Wybór obszaru i otwieranie okna modalnego (karty ewidencyjnej)
 window.selectObreb = function(id) {
   const layer = obrebLayers[id];
   
   let info = { opis: "Brak dodatkowego opisu." };
+  let categoryStyle = defaultStyle;
+
   if (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) {
     info = obszaryChronioneData[id];
+    categoryStyle = defaultStyle;
   } else if (typeof lasyData !== 'undefined' && lasyData[id]) {
     info = lasyData[id];
+    categoryStyle = defaultStyleLasy;
   } else if (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) {
     info = parkiLesneData[id];
+    categoryStyle = defaultStyleParkiLesne;
   } else if (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) {
     info = cmentarzeData[id];
+    categoryStyle = defaultStyleCmentarze;
   } else if (typeof wsieData !== 'undefined' && wsieData[id]) {
     info = wsieData[id];
+    categoryStyle = defaultStyleWsie;
   } else if (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) {
     info = ogrodyDzialkoweData[id];
+    categoryStyle = defaultStyleOgrody;
   } else if (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) {
     info = ogrodyWilloweData[id];
+    categoryStyle = defaultStyleOgrodyWillowe;
   } else if (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) {
     info = osMieszkanioweIUslugoweData[id];
+    categoryStyle = defaultStyleOsMieszkanioweIUslugowe;
   } else if (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) {
     info = parkiMiejskieData[id];
+    categoryStyle = defaultStyleParkiMiejskie;
   } else if (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) {
     info = parkiHistoryczneData[id];
+    categoryStyle = defaultStyleParkiHistoryczne;
   } else if (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) {
     info = strefyPrzemysloweData[id];
+    categoryStyle = defaultStyleStrefyPrzem;
   } else if (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) {
     info = terenyKomunikacjiData[id];
+    categoryStyle = defaultStyleTerenyKomunikacji;
   } else if (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) {
     info = terenyRolniczeData[id];
+    categoryStyle = defaultStyleTerenyRol;
   }
 
   const tytul = formatTitle(id, info);
@@ -368,11 +425,91 @@ window.selectObreb = function(id) {
 
   map.closePopup();
 
-  sidebarContent.innerHTML = `
-    <h2 class="sidebar-title">${tytul}</h2>
-    <p class="sidebar-desc">${info.opis}</p>
+  modalContent.innerHTML = `
+    <div class="modal-header">
+      <h2>${tytul}</h2>
+    </div>
+    <div class="modal-body">
+      <div class="modal-info">
+        <table class="card-table">
+          <tr>
+            <th>Adres / Miejscowość</th>
+            <td>Zielona Góra</td>
+          </tr>
+          <tr>
+            <th>Kategoria obiektu i charakterystyka</th>
+            <td>${info.kategoria}<br>${info.opis}</td>
+          </tr>
+          <tr>
+            <th>Użytkownicy / Właściciel</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Działki</th>
+            <td>${info.dzialki || 'Wg obrysu mapy'}</td>
+          </tr>
+          <tr>
+            <th>Zabytki / Mała architektura</th>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-map-box">
+        <div id="mini-map"></div>
+      </div>
+    </div>
   `;
-  sidebar.classList.add('active');
+
+  modalOverlay.classList.add('active');
+
+  setTimeout(() => {
+    if (miniMap) {
+      miniMap.remove();
+      miniMap = null;
+    }
+
+    // Inicjalizacja interaktywnej mini-mapy z możliwością przybliżania
+    miniMap = L.map('mini-map', {
+      zoomControl: false,
+      scrollWheelZoom: true,
+      doubleClickZoom: false,
+      touchZoom: true,
+      dragging: true,
+      attributionControl: false
+    });
+
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19
+    }).addTo(miniMap);
+
+    if (layer && layer.toGeoJSON) {
+      const geojsonFeature = layer.toGeoJSON();
+      
+      const toggleNamesCheckbox = document.getElementById('toggle-names');
+      const showFullNames = toggleNamesCheckbox ? toggleNamesCheckbox.checked : false;
+      const labelText = (showFullNames && info.nazwa) ? info.nazwa : id;
+
+      const miniLayer = L.geoJSON(geojsonFeature, {
+        style: {
+          color: categoryStyle.color || "#2b5c8f",
+          weight: 2,
+          fillColor: categoryStyle.fillColor || "#3388ff",
+          fillOpacity: 0.5
+        },
+        onEachFeature: function(feature, miniSubLayer) {
+          miniSubLayer.bindTooltip(labelText, {
+            permanent: true,
+            direction: 'center',
+            className: 'area-label'
+          });
+        }
+      }).addTo(miniMap);
+
+      miniMap.fitBounds(miniLayer.getBounds(), { padding: [30, 30] });
+    }
+
+    miniMap.invalidateSize();
+  }, 100);
 };
 
 // Wczytywanie danych GeoJSON dla obszarów chronionych
