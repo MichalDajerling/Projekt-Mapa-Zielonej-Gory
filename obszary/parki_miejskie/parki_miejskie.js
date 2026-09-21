@@ -4,6 +4,9 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP01.",
     dzialki: "142, 143/7, 144/1, 144/3, 144/4, 169",
+    zdjecia: [ 
+      { src: "obszary\\parki_miejskie\\zdjecia\\ZP01\\ZP01_1.png"}
+    ]
   },
   "ZP02": {
     nazwa: "Dolina Łączy (Złotego Potoku)",

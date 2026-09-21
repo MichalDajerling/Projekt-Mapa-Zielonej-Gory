@@ -1,16 +1,13 @@
-// Inicjalizacja mapy Leaflet
 const map = L.map('map', {
   center: [51.9356, 15.5064],
   zoom: 12
 });
 
-// Wczytanie podkładu mapy Esri
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 19,
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Styl domyślny obszarów chronionych
 const defaultStyle = {
   color: "#2b5c8f",
   weight: 1.5,
@@ -18,7 +15,6 @@ const defaultStyle = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na obszary chronione
 const hoverStyle = {
   color: "#1e3a8a",
   weight: 3,
@@ -26,7 +22,6 @@ const hoverStyle = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla lasów (zielony)
 const defaultStyleLasy = {
   color: "#1e5e2f",
   weight: 1.5,
@@ -34,7 +29,6 @@ const defaultStyleLasy = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na lasy (zielony)
 const hoverStyleLasy = {
   color: "#14532d",
   weight: 3,
@@ -42,7 +36,6 @@ const hoverStyleLasy = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla parków leśnych (oliwkowy)
 const defaultStyleParkiLesne = {
   color: "#556b2f",
   weight: 1.5,
@@ -50,7 +43,6 @@ const defaultStyleParkiLesne = {
   fillOpacity: 0.35
 };
 
-// Styl po najechaniu myszką na parki leśne (oliwkowy)
 const hoverStyleParkiLesne = {
   color: "#3b4a20",
   weight: 3,
@@ -58,7 +50,6 @@ const hoverStyleParkiLesne = {
   fillOpacity: 0.65
 };
 
-// Styl domyślny dla cmentarzy (szary)
 const defaultStyleCmentarze = {
   color: "#4b5563",
   weight: 1.5,
@@ -66,7 +57,6 @@ const defaultStyleCmentarze = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na cmentarze (ciemnoszary)
 const hoverStyleCmentarze = {
   color: "#1f2937",
   weight: 3,
@@ -74,7 +64,6 @@ const hoverStyleCmentarze = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla wsi (ciemnopomarańczowy)
 const defaultStyleWsie = {
   color: "#c2410c",
   weight: 1.5,
@@ -82,7 +71,6 @@ const defaultStyleWsie = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na wsie (wyrazisty, rdzawo-pomarańczowy)
 const hoverStyleWsie = {
   color: "#7c2d12",
   weight: 3,
@@ -90,7 +78,6 @@ const hoverStyleWsie = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla ogrodów działkowych (ciemny fiolet)
 const defaultStyleOgrody = {
   color: "#581c87",
   weight: 1.5,
@@ -98,7 +85,6 @@ const defaultStyleOgrody = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na ogrody działkowe (ciemny fiolet)
 const hoverStyleOgrody = {
   color: "#3b0764",
   weight: 3,
@@ -106,7 +92,6 @@ const hoverStyleOgrody = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla ogrodów willowych (bordowy)
 const defaultStyleOgrodyWillowe = {
   color: "#580010",
   weight: 1.5,
@@ -114,7 +99,6 @@ const defaultStyleOgrodyWillowe = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na ogrody willowe (bordowy)
 const hoverStyleOgrodyWillowe = {
   color: "#33000a",
   weight: 3,
@@ -122,7 +106,6 @@ const hoverStyleOgrodyWillowe = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla osiedli mieszkaniowych i usługowych (pomarańczowy)
 const defaultStyleOsMieszkanioweIUslugowe = {
   color: "#c2410c",
   weight: 1.5,
@@ -130,7 +113,6 @@ const defaultStyleOsMieszkanioweIUslugowe = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na osiedla mieszkaniowe i usługowe (pomarańczowy)
 const hoverStyleOsMieszkanioweIUslugowe = {
   color: "#9a3412",
   weight: 3,
@@ -138,7 +120,6 @@ const hoverStyleOsMieszkanioweIUslugowe = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla parków miejskich (brązowy)
 const defaultStyleParkiMiejskie = {
   color: "#5c2c0c",
   weight: 1.5,
@@ -146,7 +127,6 @@ const defaultStyleParkiMiejskie = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na parki miejskie (brązowy)
 const hoverStyleParkiMiejskie = {
   color: "#3d1d08",
   weight: 3,
@@ -154,7 +134,6 @@ const hoverStyleParkiMiejskie = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla parków historycznych (jasnoniebieski)
 const defaultStyleParkiHistoryczne = {
   color: "#0284c7",
   weight: 1.5,
@@ -162,7 +141,6 @@ const defaultStyleParkiHistoryczne = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na parki historyczne (jasnoniebieski)
 const hoverStyleParkiHistoryczne = {
   color: "#0369a1",
   weight: 3,
@@ -170,7 +148,6 @@ const hoverStyleParkiHistoryczne = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla stref przemysłowych (magenta)
 const defaultStyleStrefyPrzem = {
   color: "#cc00cc",
   weight: 1.5,
@@ -178,7 +155,6 @@ const defaultStyleStrefyPrzem = {
   fillOpacity: 0.35
 };
 
-// Styl po najechaniu myszką na strefy przemysłowe (magenta)
 const hoverStyleStrefyPrzem = {
   color: "#ff00ff",
   weight: 3,
@@ -186,7 +162,6 @@ const hoverStyleStrefyPrzem = {
   fillOpacity: 0.65
 };
 
-// Styl domyślny dla terenów komunikacji (czerwony)
 const defaultStyleTerenyKomunikacji = {
   color: "#991b1b",
   weight: 1.5,
@@ -194,7 +169,6 @@ const defaultStyleTerenyKomunikacji = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na tereny komunikacji (czerwony)
 const hoverStyleTerenyKomunikacji = {
   color: "#7f1d1d",
   weight: 3,
@@ -202,7 +176,6 @@ const hoverStyleTerenyKomunikacji = {
   fillOpacity: 0.55
 };
 
-// Styl domyślny dla terenów rolniczych (żółty)
 const defaultStyleTerenyRol = {
   color: "#ca8a04",
   weight: 1.5,
@@ -210,7 +183,6 @@ const defaultStyleTerenyRol = {
   fillOpacity: 0.25
 };
 
-// Styl po najechaniu myszką na tereny rolnicze (żółty)
 const hoverStyleTerenyRol = {
   color: "#854d0e",
   weight: 3,
@@ -218,7 +190,6 @@ const hoverStyleTerenyRol = {
   fillOpacity: 0.55
 };
 
-// Pobranie elementów okna modalnego
 const modalOverlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
 const modalContent = document.getElementById('modal-content');
@@ -253,7 +224,6 @@ let geojsonStrefyPrzemLayer = null;
 let geojsonTerenyKomunikacjiLayer = null;
 let geojsonTerenyRolLayer = null;
 
-// Tworzenie panelu filtrowania w prawym górnym rogu
 const filterControl = L.control({ position: 'topright' });
 
 filterControl.onAdd = function() {
@@ -353,7 +323,6 @@ filterControl.onAdd = function() {
 
 filterControl.addTo(map);
 
-// Pobieranie identyfikatora z właściwości GeoJSON
 function getObrebId(feature, index) {
   const p = feature.properties || {};
   if (p.id) return String(p.id);
@@ -361,7 +330,6 @@ function getObrebId(feature, index) {
   return String(index + 1);
 }
 
-// Formatowanie tytułu w oknie modalnym / popupie
 function formatTitle(id, info) {
   if (info && info.nazwa) {
     return info.nazwa;
@@ -369,55 +337,90 @@ function formatTitle(id, info) {
   return `Obszar nr ${id}`;
 }
 
-// Wybór obszaru i otwieranie okna modalnego (karty ewidencyjnej)
 window.selectObreb = function(id) {
   const layer = obrebLayers[id];
   
   let info = { opis: "Brak dodatkowego opisu." };
   let categoryStyle = defaultStyle;
+  let folderPath = "";
 
   if (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) {
     info = obszaryChronioneData[id];
     categoryStyle = defaultStyle;
+    folderPath = "obszary_chronione";
   } else if (typeof lasyData !== 'undefined' && lasyData[id]) {
     info = lasyData[id];
     categoryStyle = defaultStyleLasy;
+    folderPath = "lasy";
   } else if (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) {
     info = parkiLesneData[id];
     categoryStyle = defaultStyleParkiLesne;
+    folderPath = "parki_lesne";
   } else if (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) {
     info = cmentarzeData[id];
     categoryStyle = defaultStyleCmentarze;
+    folderPath = "cmentarze";
   } else if (typeof wsieData !== 'undefined' && wsieData[id]) {
     info = wsieData[id];
     categoryStyle = defaultStyleWsie;
+    folderPath = "wsie";
   } else if (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) {
     info = ogrodyDzialkoweData[id];
     categoryStyle = defaultStyleOgrody;
+    folderPath = "ogrody_dzialkowe";
   } else if (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) {
     info = ogrodyWilloweData[id];
     categoryStyle = defaultStyleOgrodyWillowe;
+    folderPath = "ogrody_willowe";
   } else if (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) {
     info = osMieszkanioweIUslugoweData[id];
     categoryStyle = defaultStyleOsMieszkanioweIUslugowe;
+    folderPath = "os_mieszkaniowe_i_uslugowe";
   } else if (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) {
     info = parkiMiejskieData[id];
     categoryStyle = defaultStyleParkiMiejskie;
+    folderPath = "parki_miejskie";
   } else if (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) {
     info = parkiHistoryczneData[id];
     categoryStyle = defaultStyleParkiHistoryczne;
+    folderPath = "parki_historyczne";
   } else if (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) {
     info = strefyPrzemysloweData[id];
     categoryStyle = defaultStyleStrefyPrzem;
+    folderPath = "strefy_przem";
   } else if (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) {
     info = terenyKomunikacjiData[id];
     categoryStyle = defaultStyleTerenyKomunikacji;
+    folderPath = "tereny_komunikacji";
   } else if (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) {
     info = terenyRolniczeData[id];
     categoryStyle = defaultStyleTerenyRol;
+    folderPath = "tereny_rol";
   }
 
   const tytul = formatTitle(id, info);
+
+  let galleryHTML = '';
+  if (info.zdjecia && info.zdjecia.length > 0) {
+    galleryHTML = `
+      <div class="modal-gallery">
+        ${info.zdjecia.map(img => `
+          <figure class="modal-image-item">
+            <img src="${img.src}" alt="${img.podpis || tytul}" onerror="this.parentElement.style.display='none'">
+            ${img.podpis ? `<figcaption class="image-caption">${img.podpis}</figcaption>` : ''}
+          </figure>
+        `).join('')}
+      </div>
+    `;
+  } else if (folderPath) {
+    galleryHTML = `
+      <div class="modal-gallery">
+        <figure class="modal-image-item">
+          <img src="obszary/${folderPath}/${id}.png" alt="${tytul}" onerror="this.parentElement.style.display='none'">
+        </figure>
+      </div>
+    `;
+  }
 
   if (layer) {
     map.fitBounds(layer.getBounds(), { padding: [40, 40] });
@@ -438,7 +441,7 @@ window.selectObreb = function(id) {
           </tr>
           <tr>
             <th>Kategoria obiektu i charakterystyka</th>
-            <td>${info.kategoria}<br>${info.opis}</td>
+            <td>${info.kategoria || ''}<br>${info.opis || ''}</td>
           </tr>
           <tr>
             <th>Użytkownicy / Właściciel</th>
@@ -453,6 +456,7 @@ window.selectObreb = function(id) {
             <td></td>
           </tr>
         </table>
+        ${galleryHTML}
       </div>
       <div class="modal-map-box">
         <div id="mini-map"></div>
@@ -468,7 +472,6 @@ window.selectObreb = function(id) {
       miniMap = null;
     }
 
-    // Inicjalizacja interaktywnej mini-mapy z możliwością przybliżania
     miniMap = L.map('mini-map', {
       zoomControl: false,
       scrollWheelZoom: true,
@@ -512,7 +515,6 @@ window.selectObreb = function(id) {
   }, 100);
 };
 
-// Wczytywanie danych GeoJSON dla obszarów chronionych
 fetch('obszary/obszary_chronione/obszary_chronione.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -576,7 +578,6 @@ fetch('obszary/obszary_chronione/obszary_chronione.json')
     console.error("Błąd podczas wczytywania danych GeoJSON obszarów chronionych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla lasów
 fetch('obszary/lasy/lasy.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -636,7 +637,6 @@ fetch('obszary/lasy/lasy.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla lasów:", error);
   });
 
-// Wczytywanie danych GeoJSON dla parków leśnych
 fetch('obszary/parki_lesne/parki_lesne.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -696,7 +696,6 @@ fetch('obszary/parki_lesne/parki_lesne.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla parków leśnych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla cmentarzy
 fetch('obszary/cmentarze/cmentarze.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -756,7 +755,6 @@ fetch('obszary/cmentarze/cmentarze.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla cmentarzy:", error);
   });
 
-// Wczytywanie danych GeoJSON dla wsi
 fetch('obszary/wsie/wsie.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -816,7 +814,6 @@ fetch('obszary/wsie/wsie.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla wsi:", error);
   });
 
-// Wczytywanie danych GeoJSON dla ogrodów działkowych
 fetch('obszary/ogrody_dzialkowe/ogrody_dzialkowe.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -876,7 +873,6 @@ fetch('obszary/ogrody_dzialkowe/ogrody_dzialkowe.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla ogrodów działkowych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla ogrodów willowych
 fetch('obszary/ogrody_willowe/ogrody_willowe.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -936,7 +932,6 @@ fetch('obszary/ogrody_willowe/ogrody_willowe.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla ogrodów willowych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla osiedli mieszkaniowych i usługowych
 fetch('obszary/os_mieszkaniowe_i_uslugowe/os_mieszkaniowe_i_uslugowe.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -996,7 +991,6 @@ fetch('obszary/os_mieszkaniowe_i_uslugowe/os_mieszkaniowe_i_uslugowe.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla osiedli mieszkaniowych i usługowych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla parków miejskich
 fetch('obszary/parki_miejskie/parki_miejskie.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -1056,7 +1050,6 @@ fetch('obszary/parki_miejskie/parki_miejskie.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla parków miejskich:", error);
   });
 
-// Wczytywanie danych GeoJSON dla parków historycznych
 fetch('obszary/parki_historyczne/parki_historyczne.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -1116,7 +1109,6 @@ fetch('obszary/parki_historyczne/parki_historyczne.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla parków historycznych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla stref przemysłowych
 fetch('obszary/strefy_przem/strefy_przem.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -1176,7 +1168,6 @@ fetch('obszary/strefy_przem/strefy_przem.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla stref przemysłowych:", error);
   });
 
-// Wczytywanie danych GeoJSON dla terenów komunikacji
 fetch('obszary/tereny_komunikacji/tereny_komunikacji.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -1236,7 +1227,6 @@ fetch('obszary/tereny_komunikacji/tereny_komunikacji.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla terenów komunikacji:", error);
   });
 
-// Wczytywanie danych GeoJSON dla terenów rolniczych
 fetch('obszary/tereny_rol/tereny_rol.json')
   .then(response => {
     if (!response.ok) throw new Error(`Błąd ładowania pliku: ${response.statusText}`);
@@ -1296,7 +1286,6 @@ fetch('obszary/tereny_rol/tereny_rol.json')
     console.error("Błąd podczas wczytywania danych GeoJSON dla terenów rolniczych:", error);
   });
 
-// Obsługa zdarzeń dla checkboxów filtrowania
 document.addEventListener('change', (e) => {
   if (e.target.id === 'toggle-layer') {
     if (geojsonLayer) {
