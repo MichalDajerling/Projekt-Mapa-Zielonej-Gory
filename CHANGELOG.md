@@ -1,5 +1,24 @@
 # Changelog
 
+## [06.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP07, ZP08 dla `parki_miejskie`.
+- Nr działek dla:
+  - ZL01, ZL02, ZL03 (`lasy`),
+  - TO01, TO02 (`obszary_chronione`)
+
+## [05.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP06 dla `parki_miejskie`.
+- Nr działek dla:
+  - ZLP01, ZLP02, ZLP03, ZLP04 (`parki_lesne`).
+
 ## [0.3.1] - 17.09.2026
 
 ### Dodano

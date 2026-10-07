@@ -26,5 +26,20 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP05.",
     dzialki: "192/7, 192/8, 192/9, 193/2, 193/3, 47/6"
+  },
+  "ZP06": {
+    nazwa: "Wagmostaw",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP06."
+  },
+  "ZP07": {
+    nazwa: "Teren rekreacyjno-sportowy przy UZ, częściowo po dawnym Miasteczku Ruchu Drogowego",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP07."
+  },
+  "ZP08": {
+    nazwa: "Park Poetów",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP08."
   }
 };
