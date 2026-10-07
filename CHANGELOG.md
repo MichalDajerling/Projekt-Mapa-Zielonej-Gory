@@ -1,5 +1,16 @@
 # Changelog
 
+## [07.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP09, ZP10 dla `parki_miejskie`
+- Nr działek dla:
+  - OD01, OD02 (`ogrody_dzialkowe`),
+  - TZ01, TZ02, TZ03 (`os_mieszkaniowe_i_uslugowe`).
+
+
 ## [06.10.2026]
 
 ### Dodano

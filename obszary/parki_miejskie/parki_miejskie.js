@@ -41,5 +41,17 @@ const parkiMiejskieData = {
     nazwa: "Park Poetów",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP08."
+  },
+  "ZP09": {
+    nazwa: "Park Tysiąclecia",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP09.",
+    dzialki: "15/3, 36/1, 37, 230/1, cz. 234"
+  },
+  "ZP10": {
+    nazwa: "Plac Kolejarza",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP10.",
+    dzialki: "270/1, 270/3, 270/4, 270/5"
   }
 };
