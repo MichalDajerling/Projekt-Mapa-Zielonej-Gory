@@ -76,5 +76,23 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP13.",
     dzialki: "95/1"
+  },
+  "ZP14": {
+    nazwa: "Skwer przy Centrum Biznesu",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP14.",
+    dzialki: "147"
+  },
+  "ZP15": {
+    nazwa: "Skwer przy Centrum Biznesu",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP15.",
+    dzialki: "100/6, 100/8, 122/1, 122/2, 123, 97/1, 97/3, 97/4, 98, 80, 81/1, 81/2, 135/1"
+  },
+  "ZP16": {
+    nazwa: "Skwer przy Centrum Biznesu",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP16.",
+    dzialki: "954, 955, 121/2, 119/1, 118/3"
   }
 };

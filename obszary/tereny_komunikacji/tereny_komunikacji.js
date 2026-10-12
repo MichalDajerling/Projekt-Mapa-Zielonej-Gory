@@ -2,11 +2,13 @@ const terenyKomunikacjiData = {
   "D01": {
     nazwa: "Węzeł Północny Zielonej Góry na drodze S3",
     kategoria: "Teren komunikacji",
-    opis: "Opis i szczegółowe informacje dotyczące terenu komunikacji D01."
+    opis: "Opis i szczegółowe informacje dotyczące terenu komunikacji D01.",
+    dzialki: "185/3, 185/8, 185/9, 185/11, 185/14, 185/16, 185/17, 185/18, 185/19, 185/20, 185/21, 185/22, 185/23, 185/24, 186/4, 186/7, 186/10, 186/14, 186/18, 186/20, 186/22, 186/23, 187/3, 187/5, 187/11, 187/12, 187/14, 192/10, 214/1, 214/4, 214/5, 214/6, 214/8, 214/11, 214/12, 215/2, 215/3, 215/4, 215/5, 215/6, 215/7, 215/8, 215/9, 215/11, 215/12, 216/2, 216/4, 216/5, 216/6, 216/7, 494/3"
   },
   "D02": {
     nazwa: "Węzeł Południowy Zielonej Góry na drodze S3",
     kategoria: "Teren komunikacji",
-    opis: "Opis i szczegółowe informacje dotyczące terenu komunikacji D02."
+    opis: "Opis i szczegółowe informacje dotyczące terenu komunikacji D02.",
+    dzialki: "198/4, 198/10, 198/15, 198/16, 198/17, 198/18, 198/19, 198/20, 198/21, 245/3, 245/6, 245/7, 245/8, 246/4, 246/9, 246/11, 246/12, 246/15, 246/17, 247/4, 247/5, 247/8, 247/9, 247/16, 247/17, 248/4, 248/9, 248/10, 248/15, 248/16, 249/4, 249/5, 249/6, 249/7, 249/8, 250/1, 250/3, 250/5, 250/7, 250/8, 294/1, 294/2, 295, 297, 298, 299/1, 299/2, 300, 301/2, 320, 399/2, 399/4, cz. 516, 530/1, 530/3, 532/1, 655/5, 655/6, 655/7, 655/9, 655/10, 655/11, 655/12, 655/13, 656, 658/2, 659/2, 659/3, 659/4"
   }
 };
