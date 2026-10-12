@@ -1,11 +1,30 @@
 # Changelog
 
+## [12.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP14, ZP15, ZP16 dla `parki_miejskie`.
+- Nr działek dla:
+  - D01, D02 (`tereny_komunikacji`).
+
+## [08.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP11, ZP12, ZP13 dla `parki_miejskie`.
+- Nr działek dla:
+  - ZP02, ZP04, ZP06, ZP07, ZP08 (`parki_miejskie`),
+  - P01, P02 (`strefy_przem`).
+
 ## [07.10.2026]
 
 ### Dodano
 
 - Nowe obszary:
-  - ZP09, ZP10 dla `parki_miejskie`
+  - ZP09, ZP10 dla `parki_miejskie`.
 - Nr działek dla:
   - OD01, OD02 (`ogrody_dzialkowe`),
   - TZ01, TZ02, TZ03 (`os_mieszkaniowe_i_uslugowe`).
