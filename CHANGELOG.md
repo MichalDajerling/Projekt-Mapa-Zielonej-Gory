@@ -1,5 +1,12 @@
 # Changelog
 
+## [14.10.2026]
+
+### Dodano
+
+- Nr działek dla:
+  - R02 (`tereny_rol`).
+
 ## [13.10.2026]
 
 ### Dodano
