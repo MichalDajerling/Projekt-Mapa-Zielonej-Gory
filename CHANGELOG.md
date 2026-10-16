@@ -1,5 +1,14 @@
 # Changelog
 
+## [16.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP19, ZP20, ZP21, ZP22 dla `parki_miejskie`.
+- Nr działek dla:
+  - TW02 (`tereny_rol`).
+
 ## [15.10.2026]
 
 ### Dodano

@@ -8,6 +8,7 @@ const wsieData = {
   "TW02": {
     nazwa: "lotnisko w Przylepie",
     kategoria: "Sołectwo",
-    opis: "Opis i szczegółowe informacje dotyczące wsi TW02."
+    opis: "Opis i szczegółowe informacje dotyczące wsi TW02.",
+    dzialki: "9/12, 9/13, 9/14, 9/17, 9/18, 9/19, 9/20, 9/21, 9/22, 9/23, 9/24, 9/25, 9/26, 9/27, 9/29, 9/30, 9/32, 9/33, 9/42"
   }
 };
