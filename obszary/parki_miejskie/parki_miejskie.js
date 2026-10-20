@@ -106,5 +106,29 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP18.",
     dzialki: "5/1, 5/3, 5/5, 5/6, cz. 623, 625/2, 625/3, 625/4, 855/1, 965, 968"
+  },
+  "ZP19": {
+    nazwa: "Park Kolei Szprotawskiej",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP19.",
+    dzialki: "92, 238/7"
+  },
+  "ZP20": {
+    nazwa: "Nowe Miasto - Ochla",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP20.",
+    dzialki: "39, 40, 41/8, 41/12, 42, 120/2, 120/3, 132/5"
+  },
+  "ZP21": {
+    nazwa: "Park miejski ZP21",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP21.",
+    dzialki: "203/4, 203/7, 203/60, 204"
+  },
+  "ZP22": {
+    nazwa: "Zieleniec",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP22.",
+    dzialki: "333, 334"
   }
 };
