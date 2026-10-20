@@ -4,11 +4,45 @@ const map = L.map('map', {
   zoom: 12
 });
 
-// Wczytanie podkładu mapy Esri
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+// Adresy podkładów mapy (używane też w mini-mapie w oknie modalnym)
+const STREET_TILES_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+const ORTHO_TILES_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+
+// Podkład główny (mapa ulic Esri)
+const streetLayer = L.tileLayer(STREET_TILES_URL, {
   maxZoom: 19,
   attribution: 'Tiles &copy; Esri'
-}).addTo(map);
+});
+
+// Podkład dodatkowy (ortofotomapa / zdjęcia lotnicze i satelitarne Esri)
+const orthoLayer = L.tileLayer(ORTHO_TILES_URL, {
+  maxZoom: 19,
+  attribution: 'Tiles &copy; Esri, Maxar, Earthstar Geographics'
+});
+
+// Aktualnie wybrany podkład: 'street' albo 'ortho'
+let currentBasemap = 'street';
+streetLayer.addTo(map);
+
+// Przełącznik podkładu w lewym górnym rogu (pod przyciskami zoom)
+const basemapControl = L.control({ position: 'topleft' });
+
+basemapControl.onAdd = function() {
+  const div = L.DomUtil.create('div', 'basemap-switch');
+  div.innerHTML = `
+    <label>
+      <input type="checkbox" id="toggle-ortho">
+      Ortofotomapa
+    </label>
+  `;
+
+  L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+
+  return div;
+};
+
+basemapControl.addTo(map);
 
 // Styl domyślny obszarów chronionych
 const defaultStyle = {
@@ -478,7 +512,8 @@ window.selectObreb = function(id) {
       attributionControl: false
     });
 
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    // Mini-mapa używa tego samego podkładu, co mapa główna
+    L.tileLayer(currentBasemap === 'ortho' ? ORTHO_TILES_URL : STREET_TILES_URL, {
       maxZoom: 19
     }).addTo(miniMap);
 
@@ -1298,6 +1333,22 @@ fetch('obszary/tereny_rol/tereny_rol.json')
 
 // Obsługa zdarzeń dla checkboxów filtrowania
 document.addEventListener('change', (e) => {
+  if (e.target.id === 'toggle-ortho') {
+    if (e.target.checked) {
+      map.removeLayer(streetLayer);
+      orthoLayer.addTo(map);
+      currentBasemap = 'ortho';
+    } else {
+      map.removeLayer(orthoLayer);
+      streetLayer.addTo(map);
+      currentBasemap = 'street';
+    }
+    // Podkłady zawsze pod warstwami obszarów
+    streetLayer.bringToBack();
+    orthoLayer.bringToBack();
+    document.body.classList.toggle('ortho-mode', currentBasemap === 'ortho');
+  }
+
   if (e.target.id === 'toggle-layer') {
     if (geojsonLayer) {
       if (e.target.checked) map.addLayer(geojsonLayer);

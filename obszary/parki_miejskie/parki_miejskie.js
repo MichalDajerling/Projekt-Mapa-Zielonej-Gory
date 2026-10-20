@@ -130,5 +130,29 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP22.",
     dzialki: "333, 334"
+  },
+  "ZP23": {
+    nazwa: "Park miejski ZP23",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP23.",
+    dzialki: "117, 156, 167/20, 168/1, 168/2, 169, 210, 224/3, 224/4, 363"
+  },
+  "ZP24": {
+    nazwa: "Park im. gen. Józefa Sowińskiego",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP24.",
+    dzialki: "45/2, 47/6, 48/1, 48/2, 54/2, 54/4, 54/11, 59/1, 62/2, 62/3, 62/4"
+  },
+  "ZP25": {
+    nazwa: "Park Winny",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP25.",
+    dzialki: "108, 109/1, 109/2, 109/3, 110/1, 110/3, 110/5, 110/10, 110/12, 110/13, 111/3, 111/4, 113/1, 113/2, 114, 115/1, 115/2, 123/3, 127/3, 127/4, 127/10, 127/11"
+  },
+  "ZP26": {
+    nazwa: "Plac Słowiański",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP26.",
+    dzialki: "131/3, 137/5, 137/9, 137/10, 137/19, 164/11, 164/12, 164/13, 164/14"
   }
 };
