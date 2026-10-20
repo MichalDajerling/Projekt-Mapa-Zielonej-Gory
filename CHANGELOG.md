@@ -1,5 +1,13 @@
 # Changelog
 
+## [20.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP23, ZP24, ZP25, ZP26 dla `parki_miejskie`.
+- Ortofotomape
+
 ## [16.10.2026]
 
 ### Dodano
