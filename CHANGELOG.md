@@ -1,5 +1,28 @@
 # Changelog
 
+## [15.10.2026]
+
+### Dodano
+
+- Nr działek dla:
+  - TW01 (`wsie`).
+
+## [14.10.2026]
+
+### Dodano
+
+- Nr działek dla:
+  - R02 (`tereny_rol`).
+
+## [13.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP17, ZP18 dla `parki_miejskie`.
+- Nr działek dla:
+  - R01 (`tereny_rol`).
+
 ## [12.10.2026]
 
 ### Dodano

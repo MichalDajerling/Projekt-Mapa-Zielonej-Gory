@@ -78,21 +78,33 @@ const parkiMiejskieData = {
     dzialki: "95/1"
   },
   "ZP14": {
-    nazwa: "Skwer przy Centrum Biznesu",
+    nazwa: "Skwer Katyński",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP14.",
     dzialki: "147"
   },
   "ZP15": {
-    nazwa: "Skwer przy Centrum Biznesu",
+    nazwa: "Park Piastowski",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP15.",
     dzialki: "100/6, 100/8, 122/1, 122/2, 123, 97/1, 97/3, 97/4, 98, 80, 81/1, 81/2, 135/1"
   },
   "ZP16": {
-    nazwa: "Skwer przy Centrum Biznesu",
+    nazwa: "Ogród botaniczny Uniwersytetu Zielonogórskiego",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP16.",
     dzialki: "954, 955, 121/2, 119/1, 118/3"
+  },
+  "ZP17": {
+    nazwa: "Las miejski, mini zoo",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP17.",
+    dzialki: "956/5, 957, 983"
+  },
+  "ZP18": {
+    nazwa: "Ośrodek Rekreacji Pod Ochlą, Miejski Ośrodek Sportu i Rekreacji",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP18.",
+    dzialki: "5/1, 5/3, 5/5, 5/6, cz. 623, 625/2, 625/3, 625/4, 855/1, 965, 968"
   }
 };
