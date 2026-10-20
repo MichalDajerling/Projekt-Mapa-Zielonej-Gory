@@ -3,6 +3,8 @@
 
 Projekt interaktywnej mapy internetowej prezentującej podział przestrzenny i funkcjonalny Zielonej Góry z możliwością filtracji i przełączania warstw.
 
+[text](https://michaldajerling.github.io/Projekt-Mapa-Zielonej-Gory/)
+
 ---
 
 ### Funkcjonalności
