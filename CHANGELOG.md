@@ -1,5 +1,12 @@
 # Changelog
 
+## [21.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP27, ZP28, ZP29, ZP30 dla `parki_miejskie`.
+
 ## [20.10.2026]
 
 ### Dodano

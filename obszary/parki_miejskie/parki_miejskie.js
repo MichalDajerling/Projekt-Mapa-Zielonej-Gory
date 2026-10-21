@@ -154,5 +154,29 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP26.",
     dzialki: "131/3, 137/5, 137/9, 137/10, 137/19, 164/11, 164/12, 164/13, 164/14"
+  },
+  "ZP27": {
+    nazwa: "Park miejski ZP27",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP27.",
+    dzialki: "63/4, 67/10, 67/12, 67/13, 72, 73/1, 73/2, 102/1, 105/4, 107/1, 120/3, 122/9, 124/3, 125/3, 126/3, 127/5, 127/7, 127/8, 129/1, 130, 259/40, 259/46, 259/50, 267/2, 269/14, 269/15, 270, 271, 272/2, 273/2, 366/4, 366/5, 366/10, 366/11, 366/12, 386, 444/1, 446, 448, 457, 458"
+  },
+  "ZP28": {
+    nazwa: "Śródmieście",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP28.",
+    dzialki: "292/7"
+  },
+  "ZP29": {
+    nazwa: "Rektorat Uniwersytetu Zielonogórskiego, Budynek A-18",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP29.",
+    dzialki: "34, 385/1, 385/2"
+  },
+  "ZP30": {
+    nazwa: "Park miejski ZP30",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP30.",
+    dzialki: "164/20, 203/38, 203/59, 203/61, 210/1, 210/2, 212/24, 212/30, 310/1, 310/2, 330/2, 335, 336, 338/41, 339, 435"
   }
 };
