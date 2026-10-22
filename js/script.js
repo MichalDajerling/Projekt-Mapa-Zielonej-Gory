@@ -409,46 +409,60 @@ window.selectObreb = function(id) {
   
   let info = { opis: "Brak dodatkowego opisu." };
   let categoryStyle = defaultStyle;
+  let fotoFolder = '';
 
   if (typeof obszaryChronioneData !== 'undefined' && obszaryChronioneData[id]) {
     info = obszaryChronioneData[id];
     categoryStyle = defaultStyle;
+    fotoFolder = 'obszary_chronione';
   } else if (typeof lasyData !== 'undefined' && lasyData[id]) {
     info = lasyData[id];
     categoryStyle = defaultStyleLasy;
+    fotoFolder = 'lasy';
   } else if (typeof parkiLesneData !== 'undefined' && parkiLesneData[id]) {
     info = parkiLesneData[id];
     categoryStyle = defaultStyleParkiLesne;
+    fotoFolder = 'parki_lesne';
   } else if (typeof cmentarzeData !== 'undefined' && cmentarzeData[id]) {
     info = cmentarzeData[id];
     categoryStyle = defaultStyleCmentarze;
+    fotoFolder = 'cmentarze';
   } else if (typeof wsieData !== 'undefined' && wsieData[id]) {
     info = wsieData[id];
     categoryStyle = defaultStyleWsie;
+    fotoFolder = 'wsie';
   } else if (typeof ogrodyDzialkoweData !== 'undefined' && ogrodyDzialkoweData[id]) {
     info = ogrodyDzialkoweData[id];
     categoryStyle = defaultStyleOgrody;
+    fotoFolder = 'ogrody_dzialkowe';
   } else if (typeof ogrodyWilloweData !== 'undefined' && ogrodyWilloweData[id]) {
     info = ogrodyWilloweData[id];
     categoryStyle = defaultStyleOgrodyWillowe;
+    fotoFolder = 'ogrody_willowe';
   } else if (typeof osMieszkanioweIUslugoweData !== 'undefined' && osMieszkanioweIUslugoweData[id]) {
     info = osMieszkanioweIUslugoweData[id];
     categoryStyle = defaultStyleOsMieszkanioweIUslugowe;
+    fotoFolder = 'os_mieszkaniowe_i_uslugowe';
   } else if (typeof parkiMiejskieData !== 'undefined' && parkiMiejskieData[id]) {
     info = parkiMiejskieData[id];
     categoryStyle = defaultStyleParkiMiejskie;
+    fotoFolder = 'parki_miejskie';
   } else if (typeof parkiHistoryczneData !== 'undefined' && parkiHistoryczneData[id]) {
     info = parkiHistoryczneData[id];
     categoryStyle = defaultStyleParkiHistoryczne;
+    fotoFolder = 'parki_historyczne';
   } else if (typeof strefyPrzemysloweData !== 'undefined' && strefyPrzemysloweData[id]) {
     info = strefyPrzemysloweData[id];
     categoryStyle = defaultStyleStrefyPrzem;
+    fotoFolder = 'strefy_przem';
   } else if (typeof terenyKomunikacjiData !== 'undefined' && terenyKomunikacjiData[id]) {
     info = terenyKomunikacjiData[id];
     categoryStyle = defaultStyleTerenyKomunikacji;
+    fotoFolder = 'tereny_komunikacji';
   } else if (typeof terenyRolniczeData !== 'undefined' && terenyRolniczeData[id]) {
     info = terenyRolniczeData[id];
     categoryStyle = defaultStyleTerenyRol;
+    fotoFolder = 'tereny_rol';
   }
 
   const tytul = formatTitle(id, info);
@@ -458,6 +472,29 @@ window.selectObreb = function(id) {
   }
 
   map.closePopup();
+
+  // Galeria zdjęć: pliki w obszary/<folder>/<folder>_foto/<ID>_1.jpg, <ID>_2.jpg itd.
+  // Podpisy pobierane są z tablicy "galeria" w pliku z danymi (kolejność = numer zdjęcia)
+  const galeria = (info.galeria && info.galeria.length) ? info.galeria : [];
+  let galeriaPrzyciskHTML = '';
+  let galeriaWidokHTML = '';
+
+  if (galeria.length > 0 && fotoFolder) {
+    const zdjeciaHTML = galeria.map((foto, i) => `
+      <figure class="gallery-item">
+        <img src="obszary/${fotoFolder}/${fotoFolder}_foto/${id}_${i + 1}.jpg" alt="${foto.podpis || tytul}" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption class="gallery-caption">${foto.podpis || ''}</figcaption>
+      </figure>
+    `).join('');
+
+    galeriaPrzyciskHTML = `<button type="button" class="btn-gallery" id="btn-gallery-open">Galeria</button>`;
+    galeriaWidokHTML = `
+      <div class="modal-gallery hidden-view" id="modal-gallery">
+        <button type="button" class="btn-gallery-back" id="btn-gallery-back">← Wróć do karty</button>
+        <div class="gallery-list">${zdjeciaHTML}</div>
+      </div>
+    `;
+  }
 
   modalContent.innerHTML = `
     <div class="modal-header">
@@ -487,14 +524,36 @@ window.selectObreb = function(id) {
             <td></td>
           </tr>
         </table>
+        ${galeriaPrzyciskHTML}
       </div>
       <div class="modal-map-box">
         <div id="mini-map"></div>
       </div>
     </div>
+    ${galeriaWidokHTML}
   `;
 
   modalOverlay.classList.add('active');
+
+  // Przełączanie między kartą a galerią zdjęć
+  const btnGalleryOpen = document.getElementById('btn-gallery-open');
+  const btnGalleryBack = document.getElementById('btn-gallery-back');
+  const modalBody = modalContent.querySelector('.modal-body');
+  const modalGallery = document.getElementById('modal-gallery');
+
+  if (btnGalleryOpen && modalGallery) {
+    btnGalleryOpen.addEventListener('click', () => {
+      modalBody.classList.add('hidden-view');
+      modalGallery.classList.remove('hidden-view');
+      modalContent.parentElement.scrollTop = 0;
+    });
+
+    btnGalleryBack.addEventListener('click', () => {
+      modalGallery.classList.add('hidden-view');
+      modalBody.classList.remove('hidden-view');
+      if (miniMap) miniMap.invalidateSize();
+    });
+  }
 
   setTimeout(() => {
     if (miniMap) {
