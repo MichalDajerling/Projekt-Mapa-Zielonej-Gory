@@ -1,5 +1,13 @@
 # Changelog
 
+## [22.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZP31, ZP32 dla `parki_miejskie`.
+- Funkcja galerii.
+
 ## [21.10.2026]
 
 ### Dodano

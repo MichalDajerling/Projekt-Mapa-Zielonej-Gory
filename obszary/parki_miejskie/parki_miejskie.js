@@ -4,6 +4,10 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP01.",
     dzialki: "142, 143/7, 144/1, 144/3, 144/4, 169",
+    galeria: [
+      {podpis: "Centralna część założenia"},
+      {podpis: "Wschodnia część założenia, niegdyś wykorzystywana jako miejsce rozstawiania obiektów wesołego miasteczka, cyrku itp."}
+    ]
   },
   "ZP02": {
     nazwa: "Dolina Łączy (Złotego Potoku)",
@@ -178,5 +182,17 @@ const parkiMiejskieData = {
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP30.",
     dzialki: "164/20, 203/38, 203/59, 203/61, 210/1, 210/2, 212/24, 212/30, 310/1, 310/2, 330/2, 335, 336, 338/41, 339, 435"
+  },
+  "ZP31": {
+    nazwa: "Park miejski ZP31",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP31.",
+    dzialki: "60, 278/1, 278/2, 278/3, 279/2, 292/3, 292/5, 292/8, 328, 336"
+  },
+  "ZP32": {
+    nazwa: "Park miejski ZP32",
+    kategoria: "Park miejski",
+    opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP32.",
+    dzialki: "9, 19, 56/1, 72, 122/1, 126/7, 126/8, 130/2, 140, 143/1, 203/7, 210/2, 211, 214/4, 280/7, 280/8, 287/17, 287/22, 287/24, 287/34, 294/3, 326/4, 347, 376/10, 376/11, 376/12, 376/33, 376/42, 376/43, 376/44, 456, 489"
   }
 };
