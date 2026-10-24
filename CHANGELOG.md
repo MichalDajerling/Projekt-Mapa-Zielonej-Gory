@@ -5,6 +5,13 @@
 ### Dodano
 
 - Nowe obszary:
+  - ZC03, ZC04, ZC05, ZC06, ZC07, ZC08 dla `cmentarze`.
+
+## [22.10.2026]
+
+### Dodano
+
+- Nowe obszary:
   - ZP31, ZP32 dla `parki_miejskie`.
 - Funkcja galerii.
 
