@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[15.599387895136063,51.975749048098045],[15.598776883258184,51.975101119990185],[15.599207031066234,51.97490584917126],[15.599887915322935,51.97558555209053],[15.599387895136063,51.975749048098045]]]},"properties":{"title":"polygon 1","show-label":false,"length-unit":"m","shape-length":247.9137199185003,"area-unit":"m2","shape-area":3246.219250035352,"show-symbol":true}}
+]}
