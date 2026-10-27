@@ -1,6 +1,15 @@
 # Changelog
 
-## [22.10.2026]
+## [24.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZC09, ZC10, ZC11, ZC12 dla `cmentarze`.
+- Galeria:
+  - ZP01, ZP02, ZP03, ZP04, ZP05, ZP06, ZP07, ZP08.
+
+## [24.10.2026]
 
 ### Dodano
 
