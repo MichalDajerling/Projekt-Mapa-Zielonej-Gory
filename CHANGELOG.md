@@ -7,6 +7,13 @@
 - Nowe obszary:
   - OW04, OW05, OW06, OW07, OW08 dla `ogrody_willowe`.
 
+## [27.10.2026]
+
+### Dodano
+  - ZC09, ZC10, ZC11, ZC12 dla `cmentarze`.
+- Galeria:
+  - ZP01, ZP02, ZP03, ZP04, ZP05, ZP06, ZP07, ZP08.
+
 ## [24.10.2026]
 
 ### Dodano

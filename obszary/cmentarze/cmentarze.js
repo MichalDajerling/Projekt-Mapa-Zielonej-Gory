@@ -46,5 +46,29 @@ const cmentarzeData = {
     kategoria: "Cmentarz",
     opis: "Opis i szczegółowe informacje dotyczące cmentarza ZC08.",
     dzialki: "cz. 47/8"
+  },
+  "ZC09": {
+    nazwa: "Nowe Miasto - Jarogniewice",
+    kategoria: "Cmentarz",
+    opis: "Opis i szczegółowe informacje dotyczące cmentarza ZC09.",
+    dzialki: "63"
+  },
+  "ZC10": {
+    nazwa: "Nowe Miasto - Drzonków",
+    kategoria: "Cmentarz",
+    opis: "Opis i szczegółowe informacje dotyczące cmentarza ZC10.",
+    dzialki: "377"
+  },
+  "ZC11": {
+    nazwa: "Cmentarz ZC11",
+    kategoria: "Cmentarz",
+    opis: "Opis i szczegółowe informacje dotyczące cmentarza ZC11.",
+    dzialki: "364/3"
+  },
+  "ZC12": {
+    nazwa: "Cmentarz ZC12",
+    kategoria: "Cmentarz",
+    opis: "Opis i szczegółowe informacje dotyczące cmentarza ZC12.",
+    dzialki: "97"
   }
 };
