@@ -1,6 +1,13 @@
 # Changelog
 
-## [22.10.2026]
+## [28.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - OW04, OW05, OW06, OW07, OW08 dla `ogrody_willowe`.
+
+## [24.10.2026]
 
 ### Dodano
 
