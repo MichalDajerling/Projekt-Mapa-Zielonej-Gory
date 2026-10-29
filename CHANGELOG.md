@@ -1,5 +1,12 @@
 # Changelog
 
+## [29.10.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - OW09, OW10, OW11, OW012, OW13, OW14 dla `ogrody_willowe`.
+
 ## [28.10.2026]
 
 ### Dodano
