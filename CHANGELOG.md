@@ -1,5 +1,18 @@
 # Changelog
 
+## [03.11.2026]
+
+### Dodano
+
+- Galeria:
+  - ZP09-ZP32
+
+### Poprawiono
+
+- ZP27 i ZP32 dzieliły wspólną
+- Brakującą działkę w ZP30
+- ZP21, ZP30 i ZP32 dzieliły wspólne działki
+
 ## [29.10.2026]
 
 ### Dodano
