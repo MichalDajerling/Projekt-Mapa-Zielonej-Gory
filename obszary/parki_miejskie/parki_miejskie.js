@@ -99,144 +99,309 @@ const parkiMiejskieData = {
     nazwa: "Park Tysiąclecia",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP09.",
-    dzialki: "15/3, 36/1, 37, 230/1, cz. 234"
+    dzialki: "15/3, 36/1, 37, 230/1, cz. 234",
+    galeria: [
+      {podpis: "Aleja lipowa łącząca część południową parku z terenem na południu"},
+      {podpis: "Jedna z dwóch głównych alei lipowych ciągnąca się wzdłuż całego parku po str. północnej"},
+      {podpis: "Grobowiec Georga Beuchelta zlokalizowany w pd.-wsch. części parku"},
+      {podpis: "Dawne ujęcie wody w północnej części parku"},
+      {podpis: "Polana z brzozami przy ul. Staszica"},
+      {podpis: "Wzgórze w zachodniej części parku w pobliżu Pl. Piłsudskiego"},
+      {podpis: "Budynek dawnego krematorium po rewitalizacji"},
+      {podpis: "Szpaler z lipy drobnolistnej przy jednej z alejek parkowych. Charakterystyczny układ tarasowy"}
+    ]
   },
   "ZP10": {
     nazwa: "Plac Kolejarza",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP10.",
-    dzialki: "270/1, 270/3, 270/4, 270/5"
+    dzialki: "270/1, 270/3, 270/4, 270/5",
+    galeria: [
+      {podpis: "Widok na grupę pomnikowych dębów oraz pomnik z rzeźbą"},
+      {podpis: "Skarpa na północnej granicy skweru"},
+      {podpis: "Tranzytowe ciągi piesze w kierunku dworca PKP"},
+      {podpis: "Widok na skwer od ul. B. Chrobrego"}
+    ]
   },
   "ZP11": {
     nazwa: "Park Makusynów",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP11.",
-    dzialki: "265/3"
+    dzialki: "265/3",
+    galeria: [
+      {podpis: "Motyw wodny w parku"},
+      {podpis: "Alejka parkowa"},
+      {podpis: "Fragment parku"},
+      {podpis: "Widok parku od strony zachodniej"}
+    ]
   },
   "ZP12": {
     nazwa: "Park Zielonej Góry",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP12.",
-    dzialki: "145/1, 145/2, 145/3"
+    dzialki: "145/1, 145/2, 145/3",
+    galeria: [
+      {podpis: "Widok placu od strony ul. Wojska Polskiego"},
+      {podpis: "Widok od strony al. Niepodległości"},
+      {podpis: "Widok od strony ul. Bankowej"},
+      {podpis: "Parking przy pl. Bohaterów"}
+    ]
   },
   "ZP13": {
     nazwa: "Skwer przy Centrum Biznesu",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP13.",
-    dzialki: "95/1"
+    dzialki: "95/1",
+    galeria: [
+      {podpis: "Widok od strony przychodni „Skarbowa”"},
+      {podpis: "Widok parku od strony północnej"},
+      {podpis: "Widok parku od strony pd.-wsch."}
+    ]
   },
   "ZP14": {
     nazwa: "Skwer Katyński",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP14.",
-    dzialki: "147"
+    dzialki: "147",
+    galeria: [
+      {podpis: "Widok od strony pd.-zach."},
+      {podpis: "Pomnik Katyński"},
+      {podpis: "Widok ogólny od strony ul. Bohaterów Westerplatte"},
+      {podpis: "Widok od strony ul. Ułańskiej"}
+    ]
   },
   "ZP15": {
     nazwa: "Park Piastowski",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP15.",
-    dzialki: "100/6, 100/8, 122/1, 122/2, 123, 97/1, 97/3, 97/4, 98, 80, 81/1, 81/2, 135/1"
+    dzialki: "100/6, 100/8, 122/1, 122/2, 123, 97/1, 97/3, 97/4, 98, 80, 81/1, 81/2, 135/1",
+    galeria: [
+      {podpis: "Część zachodnia parku"},
+      {podpis: "Plac zabaw dla dzieci"},
+      {podpis: "Część środkowa parku"},
+      {podpis: "Przejście pod drogą łącząca obie części parku"}
+    ]
   },
   "ZP16": {
     nazwa: "Ogród botaniczny Uniwersytetu Zielonogórskiego",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP16.",
-    dzialki: "954, 955, 121/2, 119/1, 118/3"
+    dzialki: "954, 955, 121/2, 119/1, 118/3",
+    galeria: [
+      {podpis: "Ogród botaniczny"},
+      {podpis: "Ogród botaniczny"},
+      {podpis: "Ogród botaniczny"},
+      {podpis: "Ogród botaniczny - parking"}
+    ]
   },
   "ZP17": {
     nazwa: "Las miejski, mini zoo",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP17.",
-    dzialki: "956/5, 957, 983"
+    dzialki: "956/5, 957, 983",
+    galeria: [
+      {podpis: "Tereny spacerowe w parku miejskim okolice mini zoo"},
+      {podpis: "Tereny spacerowe w parku miejskim okolice mini zoo"},
+      {podpis: "Mini zoo"},
+      {podpis: "Mini zoo"}
+    ]
   },
   "ZP18": {
     nazwa: "Ośrodek Rekreacji Pod Ochlą, Miejski Ośrodek Sportu i Rekreacji",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP18.",
-    dzialki: "5/1, 5/3, 5/5, 5/6, cz. 623, 625/2, 625/3, 625/4, 855/1, 965, 968"
+    dzialki: "5/1, 5/3, 5/5, 5/6, cz. 623, 625/2, 625/3, 625/4, 855/1, 965, 968",
+    galeria: [
+      {podpis: "Ośrodek rekreacyjny przy tzw. basenach kąpielowych"},
+      {podpis: "Ośrodek rekreacyjny przy tzw. basenach kąpielowych"},
+      {podpis: "Dzika Ochla"},
+      {podpis: "Dzika Ochla"}
+    ]
   },
   "ZP19": {
     nazwa: "Park Kolei Szprotawskiej",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP19.",
-    dzialki: "92, 238/7"
+    dzialki: "92, 238/7",
+    galeria: [
+      {podpis: "Widok parku od strony północnej"},
+      {podpis: "Główny ciąg komunikacyjny"},
+      {podpis: "Plac zabaw"},
+      {podpis: "Główny ciąg komunikacyjny"}
+    ]
   },
   "ZP20": {
     nazwa: "Nowe Miasto - Ochla",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP20.",
-    dzialki: "39, 40, 41/8, 41/12, 42, 120/2, 120/3, 132/5"
+    dzialki: "39, 40, 41/8, 41/12, 42, 120/2, 120/3, 132/5",
+    galeria: [
+      {podpis: "Budynek administracyjny, dawniej leśniczówka"},
+      {podpis: "Zbiornik wodny przy muzeum"},
+      {podpis: "Fragment kolekcji muzealnej"},
+      {podpis: "Część parkowa muzeum"}
+    ]
   },
   "ZP21": {
     nazwa: "Park miejski ZP21",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP21.",
-    dzialki: "203/4, 203/7, 203/60, 204"
+    dzialki: "203/4, 203/7, 203/60, 204",
+    galeria: [
+      {podpis: "Widok od strony al. Wojska Polskiego"},
+      {podpis: "Pomnik Lisowskiego"},
+      {podpis: "Widok parku od strony zachodniej"},
+      {podpis: "Okolice przystanku autobusowego"}
+    ]
   },
   "ZP22": {
     nazwa: "Zieleniec",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP22.",
-    dzialki: "333, 334"
+    dzialki: "333, 334",
+    galeria: [
+      {podpis: "Północna granica zieleńca - ulica Skrajna"},
+      {podpis: "Szpaler topól przy zbiorniku wodnym"},
+      {podpis: "Zieleniec"},
+      {podpis: "Zieleń przy zbiorniku wodnym"}
+    ]
   },
   "ZP23": {
     nazwa: "Park miejski ZP23",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP23.",
-    dzialki: "117, 156, 167/20, 168/1, 168/2, 169, 210, 224/3, 224/4, 363"
+    dzialki: "117, 156, 167/20, 168/1, 168/2, 169, 210, 224/3, 224/4, 363",
+    galeria: [
+      {podpis: "Okolice ul. Strzeleckiej - zakładowa bocznica kolejowa"},
+      {podpis: "Okolice al. Słowackiego, wjazd do garaży"},
+      {podpis: "Zielona Strzała, widok w stronę ul. Nowej"},
+      {podpis: "Dawny tor kolejowy (ob. zarośnięty), biegnący równolegle do ul. Piwnej"}
+    ]
   },
   "ZP24": {
     nazwa: "Park im. gen. Józefa Sowińskiego",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP24.",
-    dzialki: "45/2, 47/6, 48/1, 48/2, 54/2, 54/4, 54/11, 59/1, 62/2, 62/3, 62/4"
+    dzialki: "45/2, 47/6, 48/1, 48/2, 54/2, 54/4, 54/11, 59/1, 62/2, 62/3, 62/4",
+    galeria: [
+      {podpis: "Przestrzeń parku, w głębi boisko sportowe"},
+      {podpis: ""},
+      {podpis: "Zbiornik retencyjny"},
+      {podpis: "Pomnik przy al. Konstytucji 3 Maja"}
+    ]
   },
   "ZP25": {
     nazwa: "Park Winny",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP25.",
-    dzialki: "108, 109/1, 109/2, 109/3, 110/1, 110/3, 110/5, 110/10, 110/12, 110/13, 111/3, 111/4, 113/1, 113/2, 114, 115/1, 115/2, 123/3, 127/3, 127/4, 127/10, 127/11"
+    dzialki: "108, 109/1, 109/2, 109/3, 110/1, 110/3, 110/5, 110/10, 110/12, 110/13, 111/3, 111/4, 113/1, 113/2, 114, 115/1, 115/2, 123/3, 127/3, 127/4, 127/10, 127/11",
+    galeria: [
+      {podpis: "Wzgórze winne z palmiarnią"},
+      {podpis: "Rzeźba chłopca z koniem"},
+      {podpis: "„Parkowa” część parku winnego"},
+      {podpis: "„Parkowa” część parku winnego"}
+    ]
   },
   "ZP26": {
     nazwa: "Plac Słowiański",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP26.",
-    dzialki: "131/3, 137/5, 137/9, 137/10, 137/19, 164/11, 164/12, 164/13, 164/14"
+    dzialki: "131/3, 137/5, 137/9, 137/10, 137/19, 164/11, 164/12, 164/13, 164/14",
+    galeria: [
+      {podpis: "Plac Słowiański, część środkowa"},
+      {podpis: "Parkingi w części zachodniej placu"},
+      {podpis: "Plac Słowiański, południowo-wschodnia"},
+      {podpis: "Plac Słowiański, część środkowa"}
+    ]
   },
   "ZP27": {
     nazwa: "Park miejski ZP27",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP27.",
-    dzialki: "63/4, 67/10, 67/12, 67/13, 72, 73/1, 73/2, 102/1, 105/4, 107/1, 120/3, 122/9, 124/3, 125/3, 126/3, 127/5, 127/7, 127/8, 129/1, 130, 259/40, 259/46, 259/50, 267/2, 269/14, 269/15, 270, 271, 272/2, 273/2, 366/4, 366/5, 366/10, 366/11, 366/12, 386, 444/1, 446, 448, 457, 458"
+    dzialki: "63/4, 67/10, 67/12, 67/13, 73/1, 73/2, 102/1, 105/4, 107/1, 120/3, 122/9, 124/3, 125/3, 126/3, 127/5, 127/7, 127/8, 129/1, 130, 259/40, 259/46, 259/50, 267/2, 269/14, 269/15, 270, 271, 272/2, 273/2, 366/4, 366/5, 366/10, 366/11, 366/12, 386, 444/1, 446, 448, 457, 458",
+    galeria: [
+      {podpis: "Ul. Sobieskiego, ogród nr 1.1."},
+      {podpis: "Ul. Sobieskiego, ogród nr 1.1."},
+      {podpis: "Ogród nr 1.2. zaplecze ul. Drzewnej i Kupieckiej oraz stacji benzynowej"},
+      {podpis: "Ogród nr 1.3. między Reja i Kasprowicza"},
+      {podpis: "Ogród nr 1.4. Ogród na zapleczu ul. Reja-Wandy"},
+      {podpis: "Widok ogrodu nr 1.5."}
+    ]
   },
   "ZP28": {
     nazwa: "Śródmieście",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP28.",
-    dzialki: "292/7"
+    dzialki: "292/7",
+    galeria: [
+      {podpis: "Widok parku od strony zachodniej"},
+      {podpis: "Widok parku od strony zachodniej"},
+      {podpis: "Widok parku od strony północnej"},
+      {podpis: "Widok parku od strony filharmonii"}
+    ]
   },
   "ZP29": {
     nazwa: "Rektorat Uniwersytetu Zielonogórskiego, Budynek A-18",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP29.",
-    dzialki: "34, 385/1, 385/2"
+    dzialki: "34, 385/1, 385/2",
+    galeria: [
+      {podpis: "Widok od południa"},
+      {podpis: "Dąb szypułkowy wymagający ochrony"},
+      {podpis: "Widok od strony ul. Licealnej"},
+      {podpis: "Ogród ozdobny"}
+    ]
   },
   "ZP30": {
     nazwa: "Park miejski ZP30",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP30.",
-    dzialki: "164/20, 203/38, 203/59, 203/61, 210/1, 210/2, 212/24, 212/30, 310/1, 310/2, 330/2, 335, 336, 338/41, 339, 435"
+    dzialki: "164/20, 164/24, 203/38, 203/59, 203/61, 210/1, 210/2, 212/24, 212/30, 310/1, 310/2, 330/2, 335, 336, 338/41, 339, 435",
+    galeria: [
+      {podpis: "1.1.Ogród przy cerkwi"},
+      {podpis: "1.2. Ogród przy Elżbietankach, ogród frontowyj"},
+      {podpis: "1.2. Elżbietanki - zaplecze"},
+      {podpis: "Zieleniec przed hotelem Ruben"},
+      {podpis: "Zieleń przy restauracji Stary Młyn"},
+      {podpis: "1.5. samosiew robinii przy targowisku Konfin"}
+    ]
   },
   "ZP31": {
     nazwa: "Park miejski ZP31",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP31.",
-    dzialki: "60, 278/1, 278/2, 278/3, 279/2, 292/3, 292/5, 292/8, 328, 336"
+    dzialki: "60, 278/1, 278/2, 278/3, 279/2, 292/3, 292/5, 292/8, 328, 336",
+    galeria: [
+      {podpis: "Zieleniec przy filharmonii"},
+      {podpis: "Zieleniec przy konkatedrze"},
+      {podpis: "Zieleniec przy ul. Jedności 3-4 (prywatny)"},
+      {podpis: "Zieleniec przy ul. Kopernika"},
+      {podpis: "Zieleniec przy ul. Reja"},
+      {podpis: "Zieleniec przy ul. Sikorskiego"}
+    ]
   },
   "ZP32": {
     nazwa: "Park miejski ZP32",
     kategoria: "Park miejski",
     opis: "Opis i szczegółowe informacje dotyczące parku miejskiego ZP32.",
-    dzialki: "9, 19, 56/1, 72, 122/1, 126/7, 126/8, 130/2, 140, 143/1, 203/7, 210/2, 211, 214/4, 280/7, 280/8, 287/17, 287/22, 287/24, 287/34, 294/3, 326/4, 347, 376/10, 376/11, 376/12, 376/33, 376/42, 376/43, 376/44, 456, 489"
+    dzialki: "9, 19, 56/1, 72, 122/1, 126/7, 126/8, 130/2, 140, 143/1, 211, 214/4, 280/7, 280/8, 287/17, 287/22, 287/24, 287/34, 294/3, 326/4, 347, 376/10, 376/11, 376/12, 376/33, 376/42, 376/43, 376/44, 456, 489",
+    galeria: [
+      {podpis: "Zieleniec przy pl. Powst. Wielkopolskich nr 1.1."},
+      {podpis: "Zieleniec przy pl. Powst. Wielkopolskich nr 1.2."},
+      {podpis: "Zieleniec przy pl. Powst. Wielkopolskich nr 1.3."},
+      {podpis: "Pl. Pocztowy"},
+      {podpis: "Zieleniec przy konkatedrze"},
+      {podpis: "Zieleniec przy schodach sądu"},
+      {podpis: "Zieleniec przy ul. Drzewnej"},
+      {podpis: "Zieleniec z winiarką"},
+      {podpis: "Zieleniec przy al. Konstytucji 3 maja"},
+      {podpis: "Zieleniec przy ul. Krawieckiej"},
+      {podpis: "Zieleńce przy ul. Mickiewicza"},
+      {podpis: "Kwietnik ul. Przy Gazowni"},
+      {podpis: "Zieleniec przy banku BZ WBK"},
+      {podpis: "Zieleńce przy bibliotece Norwid"},
+      {podpis: "Zieleń na parkingu na zapleczu ul. Drzewnej"},
+      {podpis: "Zieleń na parkingu na zapleczu ul. Ciesielskiej-Kopernika"}
+    ]
   }
 };
