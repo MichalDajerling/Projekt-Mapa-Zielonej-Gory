@@ -22,5 +22,17 @@ const parkiHistoryczneData = {
     kategoria: "Park historyczny",
     opis: "Opis i szczegółowe informacje dotyczące parku historycznego ZH04.",
     dzialki: "224/5, 224/6"
+  },
+  "ZH05": {
+    nazwa: "Nowe Miasto - Jarogniewice",
+    kategoria: "Park historyczny",
+    opis: "Opis i szczegółowe informacje dotyczące parku historycznego ZH05.",
+    dzialki: "231/11"
+  },
+  "ZH06": {
+    nazwa: "Nowe Miasto - Kiełpin",
+    kategoria: "Park historyczny",
+    opis: "Opis i szczegółowe informacje dotyczące parku historycznego ZH06.",
+    dzialki: "302/1, 303/5"
   }
 };

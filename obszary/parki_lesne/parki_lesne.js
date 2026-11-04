@@ -23,4 +23,16 @@ const parkiLesneData = {
     opis: "Opis i szczegółowe informacje dotyczące parku leśnego ZLP04.",
     dzialki: "321, 324, 325, 332"
   },
+  "ZLP05": {
+    nazwa: "Nazwa parku leśnego ZLP05",
+    kategoria: "Park leśny",
+    opis: "Opis i szczegółowe informacje dotyczące parku leśnego ZLP05.",
+    dzialki: "329, 330, 333, 621/6, 621/7, 632/1, 632/2, 837/1, 837/3, 837/4, 837/5, 842, 843"
+  },
+  "ZLP06": {
+    nazwa: "Park leśny, lasek",
+    kategoria: "Park leśny",
+    opis: "Opis i szczegółowe informacje dotyczące parku leśnego ZLP06.",
+    dzialki: "627, 628/9"
+  }
 };
