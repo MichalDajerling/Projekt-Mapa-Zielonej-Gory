@@ -1,5 +1,14 @@
 # Changelog
 
+## [05.11.2026]
+
+### Dodano
+
+Galeria:
+  - ZLP01-ZLP06
+  - OW01-OW14
+  - ZH01-ZH06
+
 ## [04.11.2026]
 
 ### Dodano
