@@ -1,5 +1,22 @@
 # Changelog
 
+## [05.11.2026]
+
+### Dodano
+
+Galeria:
+  - ZLP01-ZLP06
+  - OW01-OW14
+  - ZH01-ZH06
+
+## [04.11.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZH05, ZH06 dla `parki_historyczne`
+  - ZLP05, ZLP06 dla `parki_lesne`
+
 ## [03.11.2026]
 
 ### Dodano
