@@ -1,5 +1,20 @@
 # Changelog
 
+## [10.11.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZL04 dla `lasy`
+  - OD03 dla `ogrody_dzialkowe`
+- Nr działek dla:
+  - ZL04 (`lasy`),
+  - OD03 (`ogrody_dzialkowe`)
+
+### Poprawiono
+
+- ZL04 i R01 dzieliły wspóle działki
+
 ## [09.11.2026]
 
 ### Dodano
@@ -33,7 +48,7 @@ Galeria:
 
 ### Poprawiono
 
-- ZP27 i ZP32 dzieliły wspólną
+- ZP27 i ZP32 dzieliły wspólną działkę
 - Brakującą działkę w ZP30
 - ZP21, ZP30 i ZP32 dzieliły wspólne działki
 
