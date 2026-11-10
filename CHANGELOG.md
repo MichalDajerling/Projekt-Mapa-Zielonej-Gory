@@ -1,5 +1,12 @@
 # Changelog
 
+## [09.11.2026]
+
+### Dodano
+
+Galeria:
+  - ZC01-ZC12
+
 ## [05.11.2026]
 
 ### Dodano
