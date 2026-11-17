@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.11.2026]
+
+### Dodano
+
+- Galeria:
+  - ZL01, ZL02, ZL03, ZL04
+
 ## [10.11.2026]
 
 ### Dodano
