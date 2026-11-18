@@ -1,5 +1,13 @@
 # Changelog
 
+## [17.11.2026]
+
+### Dodano
+
+- Nowe obszary:
+  - ZL05 dla `lasy`
+  - TW03 dla `wsie`
+
 ## [13.11.2026]
 
 ### Dodano
