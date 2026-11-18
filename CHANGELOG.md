@@ -1,5 +1,18 @@
 # Changelog
 
+## [18.11.2026]
+
+### Dodano
+
+Nowe obszary:
+ - ZL06 dla `lasy`
+Nr działek dla:
+  - ZL05, ZL06 (`lasy`)
+
+### Poprawiono
+
+- Nazwę ZH06 z `Nowe Miasto - Kiełpin` na `Nowe Miasato - Zatonie`
+
 ## [17.11.2026]
 
 ### Dodano

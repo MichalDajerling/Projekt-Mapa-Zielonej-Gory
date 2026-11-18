@@ -60,7 +60,7 @@ const parkiHistoryczneData = {
     ]
   },
   "ZH06": {
-    nazwa: "Nowe Miasto - Kiełpin",
+    nazwa: "Nowe Miasato - Zatonie",
     kategoria: "Park historyczny",
     opis: "Opis i szczegółowe informacje dotyczące parku historycznego ZH06.",
     dzialki: "302/1, 303/5",
