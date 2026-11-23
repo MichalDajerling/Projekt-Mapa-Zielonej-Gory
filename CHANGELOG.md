@@ -1,5 +1,13 @@
 # Changelog
 
+## [19.11.2026]
+
+### Dodano
+
+- Galeria:
+  - ZL05, ZL06
+  - TW01, TW02, TW03
+
 ## [18.11.2026]
 
 ### Dodano
